@@ -13,10 +13,9 @@ namespace FSM
         private Animator _animatorController;
         private OxygenSystem _oxygenSystem;
         private InputSystemKeyboard _inputSystemKeyboard;
-        private IsGrounded _isGrounded;
-        //private Rigidbody2D _rigidbody2D;
+        private Rigidbody2D _rigidbody2D;
         [SerializeField]
-        private Transform _playerMovePoint;
+        private Transform _playerMovePoint;        
 
         public bool ActiveAI { get; set; }
 
@@ -25,8 +24,8 @@ namespace FSM
             _animatorController = GetComponent<Animator>();
             _oxygenSystem = GetComponent<OxygenSystem>();
             _inputSystemKeyboard = GetComponent<InputSystemKeyboard>();
-            _isGrounded = GetComponent<IsGrounded>();
-            //_rigidbody2D = GetComponent<Rigidbody2D>();
+            _rigidbody2D = _playerMovePoint.GetComponent<Rigidbody2D>(); //***------
+            // _rigidbody2D = _playerMovePoint.gameObject.GetComponent<Rigidbody2D>();
         }
 
         public void Start()
@@ -54,8 +53,7 @@ namespace FSM
 
         public bool GetFall()
         {
-            
-            return !_isGrounded.isGrounded; // probar con: _rigidbody2D.velocity.y perod movePoint del Engine ***
+            return _rigidbody2D.velocity.y < -0.5f; // Con el rigidbody del "point" es más preciso que con el "grounded"
         }
 
         public void SetAnimation(string animation, bool value)

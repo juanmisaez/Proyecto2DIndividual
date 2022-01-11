@@ -16,12 +16,10 @@ public class FallDecision : FSM.Decision
         if (y == true) // Está cayendo
         {
             fall = true;
-            Debug.Log("Estoy cayendo");
         }
         else // Está en el suelo
         {
             fall = false;
-            Debug.Log("Estoy en el suelo");
         }        
         return fall;
     }
