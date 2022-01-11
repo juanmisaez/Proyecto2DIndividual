@@ -7126,7 +7126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: 786a26e23f203684aa8b52dbc0410995, type: 2}
   remainState: {fileID: 0}
-  _playerMovePoint: {fileID: 0}
+  _playerMovePoint: {fileID: 327281770}
 --- !u!114 &1820437725
 MonoBehaviour:
   m_ObjectHideFlags: 0
