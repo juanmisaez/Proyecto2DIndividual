@@ -9,7 +9,7 @@ public class Engine : MonoBehaviour
     [SerializeField]
     private Transform movePoint;
     [SerializeField]
-    private LayerMask obstacle;
+    private LayerMask obstacle; // Necesita dos capas************
 
     private InputSystemKeyboard _inputSystem;
     private IsGrounded _isGrounded; // Comprobador de si toca el suelo
