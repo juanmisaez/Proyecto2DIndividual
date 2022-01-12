@@ -13,10 +13,10 @@ public class InputSystemKeyboard : MonoBehaviour
     public event Action PauseMenu = delegate { };
 
     public StartIntro _startIntro; // Para comprobador si está en la "cinemática"
-
+    
     void Update()
     {
-        if (!_startIntro.isCutsceneOn) // Fuera de cinemática
+        if (!_startIntro.isCutsceneOn )
         {
             hor = Input.GetAxisRaw("Horizontal");
             ver = Input.GetAxisRaw("Vertical");

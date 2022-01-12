@@ -24,8 +24,7 @@ namespace FSM
             _animatorController = GetComponent<Animator>();
             _oxygenSystem = GetComponent<OxygenSystem>();
             _inputSystemKeyboard = GetComponent<InputSystemKeyboard>();
-            _rigidbody2D = _playerMovePoint.GetComponent<Rigidbody2D>(); //***------
-            // _rigidbody2D = _playerMovePoint.gameObject.GetComponent<Rigidbody2D>();
+            _rigidbody2D = _playerMovePoint.GetComponent<Rigidbody2D>();
         }
 
         public void Start()
@@ -53,7 +52,7 @@ namespace FSM
 
         public bool GetFall()
         {
-            return _rigidbody2D.velocity.y < -0.5f; // Con el rigidbody del "point" es más preciso que con el "grounded"
+            return _rigidbody2D.velocity.y < -0.2f; // Con la velocity del "point" es más preciso que con el "grounded"
         }
 
         public void SetAnimation(string animation, bool value)

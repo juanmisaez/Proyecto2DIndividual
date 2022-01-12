@@ -9,21 +9,6 @@ public class PauseMenu : MonoBehaviour // Hacer un padre para los menús ****
 
     public GameObject menuPauseUI;
     
-    /*void Update() // No hace falta ********
-    {
-        /*if (Input.GetKeyDown(KeyCode.Escape)) // sacar evento de InputSystemKeyboard *************
-        {
-            if(GameIsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
-    }*/
-
     void Menu()
     {
         if (GameIsPaused)
@@ -52,9 +37,9 @@ public class PauseMenu : MonoBehaviour // Hacer un padre para los menús ****
 
     public void LoadMenu()
     {
-        Debug.Log("Cargando menú...");
-        //Time.timeScale = 1f;
-        //SceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        GameIsPaused = false;
     }
 
     public void QuitMenu()
@@ -62,6 +47,7 @@ public class PauseMenu : MonoBehaviour // Hacer un padre para los menús ****
         Application.Quit();
     }
 
+    // *********mirar otra forma**********
     void OnEnable()
     {
         GetComponent<InputSystemKeyboard>().PauseMenu += Menu;
@@ -70,4 +56,5 @@ public class PauseMenu : MonoBehaviour // Hacer un padre para los menús ****
     {
         GetComponent<InputSystemKeyboard>().PauseMenu -= Menu;
     }
+    // **********************************
 }

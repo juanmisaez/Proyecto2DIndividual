@@ -31,7 +31,7 @@ public class Engine : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);        
         if (Vector3.Distance(transform.position, movePoint.position) <= 0.5f)
         {
-            if (Mathf.Abs(_inputSystem.hor) == 1f && _isGrounded.isGrounded)
+            if (Mathf.Abs(_inputSystem.hor) == 1f /*&& _isGrounded.isGrounded*/)
             {
                 if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(_inputSystem.hor, 0f, 0f), .1f, obstacle)) // Comprobar si coincide con la capa "obstacle"
                 {

@@ -11,7 +11,7 @@ public class MoveDecision : FSM.Decision
 
     public override bool Decide(Controller controller)
     {
-        float x = controller.GetMoveX();        
+        float x = controller.GetMoveX();
 
         if (x != 0) // Está en movimiento
         {
