@@ -52,7 +52,12 @@ namespace FSM
 
         public bool GetFall()
         {
-            return _rigidbody2D.velocity.y < -0.2f; // Con la velocity del "point" es más preciso que con el "grounded"
+            return _rigidbody2D.velocity.y < -0.2f; // Con la 'velocity' del "point" es más preciso que con el 'grounded' del "player"
+        }
+
+        public bool GetDig()
+        {
+            return _inputSystemKeyboard.space;
         }
 
         public void SetAnimation(string animation, bool value)

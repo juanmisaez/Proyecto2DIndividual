@@ -11,7 +11,7 @@ public class IdleActionPlayer : FSM.Action
         controller.SetAnimation("idle", true);
         controller.SetAnimation("move", false);
         controller.SetAnimation("fall", false);
-        //controller.SetAnimation("dig", false);
+        controller.SetAnimation("dig", false);
         //controller.SetAnimation("climb", false);
     }
 }
