@@ -23,7 +23,7 @@ public class InputSystemKeyboard : MonoBehaviour
             ver = Input.GetAxisRaw("Vertical");
             space = Input.GetKeyDown(KeyCode.Space); //---
             
-            if (Input.GetKey(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 PauseMenu();
             }

@@ -24,7 +24,7 @@ public class OxygenSystem : MonoBehaviour
     {
         OxygenUpdated(GetOxygen());
         drown = false;
-        damage = 0; // Sin determinar hasta el final ***
+        damage = 20; // Sin determinar hasta el final ***
     }
 
     private void Update()
