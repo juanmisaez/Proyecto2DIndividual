@@ -9,15 +9,15 @@ public class Engine : MonoBehaviour
     [SerializeField]
     private Transform movePoint;
     [SerializeField]
-    private LayerMask obstacle; // Necesita dos capas************
+    private LayerMask obstacle;
 
     private InputSystemKeyboard _inputSystem;
-    private IsGrounded _isGrounded; // Comprobador de si toca el suelo
+    //private IsGrounded _isGrounded; // Comprobador de si toca el suelo
 
     void Awake()
     {
         _inputSystem = GetComponent<InputSystemKeyboard>();
-        _isGrounded = GetComponent<IsGrounded>();
+        //_isGrounded = GetComponent<IsGrounded>();
     }
         
     void Start()
@@ -33,7 +33,7 @@ public class Engine : MonoBehaviour
         {
             if (Mathf.Abs(_inputSystem.hor) == 1f /*&& _isGrounded.isGrounded*/)
             {
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(_inputSystem.hor, 0f, 0f), .1f, obstacle)) // Comprobar si coincide con la capa "obstacle"
+                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(_inputSystem.hor, 0f, 0f), .1f, obstacle)) // Comprobar si coincide con la capa "obstacle" 
                 {
                     movePoint.position += new Vector3(_inputSystem.hor, 0f, 0f);
                 }

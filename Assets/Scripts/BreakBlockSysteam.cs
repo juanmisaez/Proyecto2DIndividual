@@ -5,7 +5,6 @@ using UnityEngine.Tilemaps;
 
 public class BreakBlockSysteam : MonoBehaviour
 {
-    //public RuleTile grassTile;
     public Tilemap groundTileMap;
 
     public float casDistance = 1.0f;
@@ -18,30 +17,35 @@ public class BreakBlockSysteam : MonoBehaviour
     RaycastHit2D hit;
 
     bool destroyingBlock = false;
-    //bool placingBlock = false;
 
-    void FixedUpdate()
+    private InputSystemKeyboard _inputSystemKeyboard;
+
+    private void Awake()
+    {
+        _inputSystemKeyboard = GetComponent<InputSystemKeyboard>();
+    }
+
+    /*void FixedUpdate()
     {
         if(Input.GetKey(KeyCode.F))
         {
             RaycastDirection();
         }
-    }
+    }*/
+
     void RaycastDirection()
     {
-        if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        if(_inputSystemKeyboard.hor != 0 || _inputSystemKeyboard.ver == -1)
         {
-            direction.x = Input.GetAxis("Horizontal");
-            direction.y = Input.GetAxis("Vertical");
+            direction.x = _inputSystemKeyboard.hor; //Input.GetAxis("Horizontal");
+            direction.y = _inputSystemKeyboard.ver; //Input.GetAxis("Vertical");
         }
 
         hit = Physics2D.Raycast(raycastPoint.position, direction, casDistance, layer.value);
         
         Vector2 endpos = raycastPoint.position + direction;
 
-        Debug.DrawLine(raycastPoint.position, endpos, Color.red);
-
-        if(Input.GetKey(KeyCode.F))
+        if(_inputSystemKeyboard.space)
         {
             if(hit.collider && !destroyingBlock)
             {
@@ -61,5 +65,15 @@ public class BreakBlockSysteam : MonoBehaviour
         map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
 
         destroyingBlock = false;
+    }
+
+    void OnEnable()
+    {
+        GetComponent<InputSystemKeyboard>().Dig += RaycastDirection;
+    }
+
+    void OnDisable()
+    {
+        GetComponent<InputSystemKeyboard>().Dig -= RaycastDirection;
     }
 }
