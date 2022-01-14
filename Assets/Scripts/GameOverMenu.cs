@@ -29,7 +29,7 @@ public class GameOverMenu : MenuSystem // Hacer un padre para los menús ****
     {
         //Time.timeScale = 1f;
         GameIsPaused = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        
+        SceneManager.LoadScene("Game");
     }
 
     /*public void LoadMenu()

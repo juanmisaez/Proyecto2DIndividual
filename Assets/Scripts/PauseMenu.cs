@@ -38,7 +38,7 @@ public class PauseMenu : MenuSystem // Hacer un padre para los menús ****
     public override void LoadMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene("MainMenu");
         GameIsPaused = false;
     }
 
