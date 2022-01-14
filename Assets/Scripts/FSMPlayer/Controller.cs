@@ -13,7 +13,8 @@ namespace FSM
         private Animator _animatorController;
         private OxygenSystem _oxygenSystem;
         private InputSystemKeyboard _inputSystemKeyboard;
-        private Rigidbody2D _rigidbody2D;
+        private Rigidbody2D _rigidbody2D; //---
+        private Rigidbody2D _rigidbody2DPlayerMovePoint;        
         [SerializeField]
         private Transform _playerMovePoint;        
 
@@ -24,7 +25,8 @@ namespace FSM
             _animatorController = GetComponent<Animator>();
             _oxygenSystem = GetComponent<OxygenSystem>();
             _inputSystemKeyboard = GetComponent<InputSystemKeyboard>();
-            _rigidbody2D = _playerMovePoint.GetComponent<Rigidbody2D>();
+            _rigidbody2D = GetComponent<Rigidbody2D>(); //---
+            _rigidbody2DPlayerMovePoint = _playerMovePoint.GetComponent<Rigidbody2D>();
         }
 
         public void Start()
@@ -52,7 +54,7 @@ namespace FSM
 
         public bool GetFall()
         {
-            return _rigidbody2D.velocity.y < -0.2f; // Con la 'velocity' del "point" es más preciso que con el 'grounded' del "player"
+            return _rigidbody2DPlayerMovePoint.velocity.y < -0.2f; // Con la 'velocity' del "point" es más preciso que con el 'grounded' del "player"
         }
 
         public bool GetDig()

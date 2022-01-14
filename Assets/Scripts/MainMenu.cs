@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour // Hacer un padre para los menús ****
+public class MainMenu : MenuSystem // Hacer un padre para los menús ****
 {
-    public void PlayGame()
+    /*protected void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }*/
+
+    void OptionsGame()
+    {
+
     }
 
-    public void QuitGame()
+    /*protected void QuitGame()
     {
         Application.Quit();
-    }
+    }*/
 }

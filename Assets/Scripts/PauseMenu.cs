@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour // Hacer un padre para los menús ****
+public class PauseMenu : MenuSystem // Hacer un padre para los menús ****
 {
     public static bool GameIsPaused = false;
 
@@ -35,17 +35,17 @@ public class PauseMenu : MonoBehaviour // Hacer un padre para los menús ****
         GameIsPaused = true;
     }
 
-    public void LoadMenu()
+    public override void LoadMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         GameIsPaused = false;
     }
 
-    public void QuitMenu()
+    /*public void QuitGame()
     {
         Application.Quit();
-    }
+    }*/
 
     // *********mirar otra forma**********
     void OnEnable()
