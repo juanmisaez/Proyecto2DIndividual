@@ -13,7 +13,7 @@ public class FallDecision : FSM.Decision
     {
         bool y = controller.GetFall();
 
-        if (y == true) // Está cayendo
+        if (y) // Está cayendo
         {
             fall = true;
         }

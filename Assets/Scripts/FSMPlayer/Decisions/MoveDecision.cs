@@ -13,8 +13,9 @@ public class MoveDecision : FSM.Decision
     {
         float x = controller.GetMoveX();
         bool d = controller.GetDig();
+        bool y = controller.GetFall();
 
-        if (x != 0 && !d) // Está en movimiento siempre que no esté picando
+        if (x != 0 && !d && !y) // Está en movimiento siempre que no esté picando ni cayendo
         {
             move = true;
         }

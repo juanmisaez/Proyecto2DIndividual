@@ -11,7 +11,7 @@ public class BreakBlockSysteam : MonoBehaviour
     public Transform raycastPoint;
     public LayerMask layer;
 
-    float blockDestroyTime = 0.2f;
+    public float blockDestroyTime = 1f;
 
     Vector3 direction;
     RaycastHit2D hit;
