@@ -16,7 +16,6 @@ public class DigDecision : FSM.Decision
         if (d)
         { 
             dig = true;
-            // tempo para ponerlo a false
         }
         else
         {

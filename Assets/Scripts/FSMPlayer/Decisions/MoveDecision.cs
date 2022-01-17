@@ -12,12 +12,13 @@ public class MoveDecision : FSM.Decision
     public override bool Decide(Controller controller)
     {
         float x = controller.GetMoveX();
+        bool d = controller.GetDig();
 
-        if (x != 0) // Está en movimiento
+        if (x != 0 && !d) // Está en movimiento siempre que no esté picando
         {
             move = true;
         }
-        else if(x == 0) // Está quieto
+        else// if(x == 0) // Está quieto
         {
             move = false;
         }

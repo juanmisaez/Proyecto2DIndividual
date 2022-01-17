@@ -49,7 +49,7 @@ namespace FSM
 
         public float GetMoveX()
         {
-            return _inputSystemKeyboard.hor; // probar con velocidad.x para comprobar
+            return _inputSystemKeyboard.hor;            
         }
 
         public bool GetFall()

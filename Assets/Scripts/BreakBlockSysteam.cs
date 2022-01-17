@@ -25,25 +25,19 @@ public class BreakBlockSysteam : MonoBehaviour
         _inputSystemKeyboard = GetComponent<InputSystemKeyboard>();
     }
 
-    /*void FixedUpdate()
-    {
-        if(Input.GetKey(KeyCode.F))
-        {
-            RaycastDirection();
-        }
-    }*/
-
     void RaycastDirection()
     {
         if(_inputSystemKeyboard.hor != 0 || _inputSystemKeyboard.ver == -1)
         {
-            direction.x = _inputSystemKeyboard.hor; //Input.GetAxis("Horizontal");
-            direction.y = _inputSystemKeyboard.ver; //Input.GetAxis("Vertical");
+            direction.x = _inputSystemKeyboard.hor;
+            direction.y = _inputSystemKeyboard.ver;
         }
 
         hit = Physics2D.Raycast(raycastPoint.position, direction, casDistance, layer.value);
         
         Vector2 endpos = raycastPoint.position + direction;
+
+        //Debug.DrawLine(raycastPoint.position, endpos, Color.red); 
 
         if(_inputSystemKeyboard.space)
         {
