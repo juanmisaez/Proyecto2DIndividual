@@ -175,10 +175,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 1889131996}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -450,10 +450,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1487050730}
+    m_SelectOnDown: {fileID: 1465192894}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -2601,7 +2601,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &377869198
 GameObject:
@@ -2655,9 +2655,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 1889131996}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
@@ -2968,6 +2968,7 @@ GameObject:
   - component: {fileID: 457162787}
   - component: {fileID: 457162786}
   - component: {fileID: 457162790}
+  - component: {fileID: 457162793}
   - component: {fileID: 457162792}
   - component: {fileID: 457162791}
   m_Layer: 5
@@ -3076,6 +3077,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab5dc3fcd4f7e9146b6ca696d6950b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedFirstButton: {fileID: 1487050728}
+  optionsFirstButton: {fileID: 0}
+  optionsCloseButton: {fileID: 0}
   menuPauseUI: {fileID: 1040097635}
 --- !u!114 &457162791
 MonoBehaviour:
@@ -3102,8 +3106,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb4a8bd50e43aa4286c60ff142e3968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedFirstButton: {fileID: 81673082}
+  optionsFirstButton: {fileID: 0}
+  optionsCloseButton: {fileID: 0}
   menuGameOverUI: {fileID: 1198738980}
   _oxygenSystem: {fileID: 1820437725}
+--- !u!114 &457162793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457162785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cf4ace0cfc4f841a077049f868dac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedFirstButton: {fileID: 0}
+  optionsFirstButton: {fileID: 0}
+  optionsCloseButton: {fileID: 0}
 --- !u!1 &481491974
 GameObject:
   m_ObjectHideFlags: 0
@@ -4096,7 +4118,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &776285419
 GameObject:
@@ -5136,7 +5158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1198738981
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5321,7 +5343,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1329037087
 GameObject:
@@ -6068,9 +6090,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 229943870}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
@@ -6217,7 +6239,7 @@ Transform:
   m_Children:
   - {fileID: 1794878805}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1487050728
 GameObject:
@@ -6271,10 +6293,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 229943870}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -6721,7 +6743,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1702309575
 GameObject:
@@ -6901,7 +6923,7 @@ Transform:
   - {fileID: 953239988}
   - {fileID: 403501146}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1731055104
 GameObject:
@@ -7334,7 +7356,7 @@ Transform:
   - {fileID: 327281770}
   - {fileID: 1410131357}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1820437724
 MonoBehaviour:
@@ -7570,10 +7592,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 81673084}
+    m_SelectOnDown: {fileID: 377869200}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -7733,7 +7755,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1895161787
 Animator:
@@ -8018,7 +8040,7 @@ Transform:
   - {fileID: 481491977}
   - {fileID: 147779716}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2085176911
 GameObject:

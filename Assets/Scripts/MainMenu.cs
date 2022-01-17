@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
-public class MainMenu : MenuSystem // Hacer un padre para los menús ****
+public class MainMenu : MenuSystem
 {
     /*protected void PlayGame()
     {

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
-public class GameOverMenu : MenuSystem // Hacer un padre para los menús ****
+public class GameOverMenu : MenuSystem
 {
     public static bool GameIsPaused = false;
 
@@ -14,7 +15,7 @@ public class GameOverMenu : MenuSystem // Hacer un padre para los menús ****
     {
         if(_oxygenSystem.GetOxygen() <= 0)
         {
-            Pause();
+            Pause();            
         }
     }
 
@@ -22,7 +23,9 @@ public class GameOverMenu : MenuSystem // Hacer un padre para los menús ****
     {
         menuGameOverUI.SetActive(true);
         //Time.timeScale = 0f;
-        //GameIsPaused = true;
+        GameIsPaused = true;
+        EventSystem.current.SetSelectedGameObject(null); // limpia el objeto seleccionado
+        EventSystem.current.SetSelectedGameObject(selectedFirstButton); // selecciona un nuevo objeto
     }
 
     public void Retry()

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
-public class PauseMenu : MenuSystem // Hacer un padre para los menús ****
+public class PauseMenu : MenuSystem
 {
     public static bool GameIsPaused = false;
 
@@ -33,6 +34,9 @@ public class PauseMenu : MenuSystem // Hacer un padre para los menús ****
         menuPauseUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+
+        EventSystem.current.SetSelectedGameObject(null); // limpia el objeto seleccionado
+        EventSystem.current.SetSelectedGameObject(selectedFirstButton); // selecciona un nuevo objeto
     }
 
     public override void LoadMenu()
