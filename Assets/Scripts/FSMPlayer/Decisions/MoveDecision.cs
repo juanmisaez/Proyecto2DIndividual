@@ -19,7 +19,7 @@ public class MoveDecision : FSM.Decision
         {
             move = true;
         }
-        else// if(x == 0) // Está quieto
+        else if(x == 0) // Está quieto
         {
             move = false;
         }
