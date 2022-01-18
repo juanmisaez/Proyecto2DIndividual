@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class BreakBlockSysteam : MonoBehaviour
-{
+{    
     public Tilemap groundTileMap;
 
     public float casDistance = 1.0f;
@@ -25,19 +25,28 @@ public class BreakBlockSysteam : MonoBehaviour
         _inputSystemKeyboard = GetComponent<InputSystemKeyboard>();
     }
 
-    void RaycastDirection()
+    private void Update()
     {
-        if(_inputSystemKeyboard.hor != 0 || _inputSystemKeyboard.ver == -1)
+        if (_inputSystemKeyboard.hor != 0 || _inputSystemKeyboard.ver == -1)
         {
             direction.x = _inputSystemKeyboard.hor;
             direction.y = _inputSystemKeyboard.ver;
         }
+    }
+
+    void RaycastDirection()
+    {
+        /*if(_inputSystemKeyboard.hor != 0 || _inputSystemKeyboard.ver == -1)
+        {
+            direction.x = _inputSystemKeyboard.hor;
+            direction.y = _inputSystemKeyboard.ver;
+        }*/
 
         hit = Physics2D.Raycast(raycastPoint.position, direction, casDistance, layer.value);
         
         Vector2 endpos = raycastPoint.position + direction;
 
-        //Debug.DrawLine(raycastPoint.position, endpos, Color.red); 
+        Debug.DrawLine(raycastPoint.position, endpos, Color.red); 
 
         if(_inputSystemKeyboard.space)
         {
