@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System;
 
-public class BreakBlockSysteam : MonoBehaviour
-{    
-    public Tilemap groundTileMap;
+public class BreakBlockSystem : MonoBehaviour
+{
+    //public event Action<int> DamageUpdated = delegate { };
+
+    public Tilemap[] groundTileMap;
 
     public float casDistance = 1.0f;
     public Transform raycastPoint;
@@ -17,6 +20,7 @@ public class BreakBlockSysteam : MonoBehaviour
     RaycastHit2D hit;
 
     bool destroyingBlock = false;
+    public int damagePickaxe;
 
     private InputSystemKeyboard _inputSystemKeyboard;
 
@@ -36,12 +40,6 @@ public class BreakBlockSysteam : MonoBehaviour
 
     void RaycastDirection()
     {
-        /*if(_inputSystemKeyboard.hor != 0 || _inputSystemKeyboard.ver == -1)
-        {
-            direction.x = _inputSystemKeyboard.hor;
-            direction.y = _inputSystemKeyboard.ver;
-        }*/
-
         hit = Physics2D.Raycast(raycastPoint.position, direction, casDistance, layer.value);
         
         Vector2 endpos = raycastPoint.position + direction;
@@ -52,31 +50,63 @@ public class BreakBlockSysteam : MonoBehaviour
         {
             if(hit.collider && !destroyingBlock)
             {
+                //---
+                // Al HealthSystem
+                //DamageUpdated(damagePickaxe);
+                //---
+
+
                 destroyingBlock = true;
                 StartCoroutine(DestroyBlock(hit.collider.gameObject.GetComponent<Tilemap>(), endpos));
             }
         }    
     }
 
+    //******************* Al Deathsystem ************************
     IEnumerator DestroyBlock(Tilemap map, Vector2 pos)
     {
         yield return new WaitForSeconds(blockDestroyTime);
 
         pos.y = Mathf.Floor(pos.y);
         pos.x = Mathf.Floor(pos.x);
+        
+        TileBase t = map.GetTile(new Vector3Int((int)pos.x, (int)pos.y,0));
 
-        map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
+        Debug.Log("nombre " + t.name);
+
+        if(t.name == "Terreno_2") // el marrón
+        {
+            map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);            
+        }
+        if (t.name == "Terreno_4") // el azul
+        {
+            map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
+        }
+        if (t.name == "Terreno_7") // el metálico
+        {
+            map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
+        }
+
+
 
         destroyingBlock = false;
+    }
+    //***********************************************************
+
+    void DamagePickaxe(int damage)
+    {
+        damagePickaxe = damage;
     }
 
     void OnEnable()
     {
         GetComponent<InputSystemKeyboard>().Dig += RaycastDirection;
+        GetComponent<DamageSystem>().UpdateDamage += DamagePickaxe;
     }
 
     void OnDisable()
     {
         GetComponent<InputSystemKeyboard>().Dig -= RaycastDirection;
+        GetComponent<DamageSystem>().UpdateDamage -= DamagePickaxe;
     }
 }

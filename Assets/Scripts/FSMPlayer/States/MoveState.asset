@@ -21,3 +21,6 @@ MonoBehaviour:
   - decision: {fileID: 11400000, guid: 07cd87e88a777874d83a3415d56c1f36, type: 2}
     trueState: {fileID: 11400000, guid: b30a2185ae4d05942b63578beb817c80, type: 2}
     falseState: {fileID: 0}
+  - decision: {fileID: 11400000, guid: 2dc9054c6ed1b094d985f7ea96dd191e, type: 2}
+    trueState: {fileID: 11400000, guid: ee0052211b346a44cacd16b963c474bc, type: 2}
+    falseState: {fileID: 0}
