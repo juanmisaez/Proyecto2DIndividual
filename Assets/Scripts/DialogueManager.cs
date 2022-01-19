@@ -45,6 +45,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
-        FindObjectOfType<StartIntro>().StopCutscene();
+        FindObjectOfType<CollisionStartIntro>()?.StopCutscene();
+        FindObjectOfType<CollisionCutscene>()?.StopCutscene();
     }
 }

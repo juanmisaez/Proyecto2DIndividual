@@ -21,6 +21,20 @@ public class InventorySystem : MonoBehaviour
         InventoryUpdated(GetOres());
     }
 
+    public void IncrementOre(int ore)
+    {
+        ores += ore;
+        if (ores >= maxOres)
+        {
+            ores = maxOres;
+            InventoryUpdated(ores);
+        }
+        else
+        {
+            InventoryUpdated(ores);
+        }
+    }
+
     public int GetOres()
     {
         return ores;

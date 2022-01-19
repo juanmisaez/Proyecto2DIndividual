@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class StartIntro : MonoBehaviour // CollisionCutscene
+public class CollisionStartIntro : CollisionSystem // CollisionCutscene
 {
     public bool isCutsceneOn;
     public Animator camAnim; // la camara
     public DialogueTrigger _dialogueTrigger;
 
-    void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {        
         isCutsceneOn = true;
         camAnim.SetBool("cutscene1", true);
