@@ -17,7 +17,7 @@ public class Engine : MonoBehaviour
     void Awake()
     {
         _inputSystem = GetComponent<InputSystemKeyboard>();
-        //_isGrounded = GetComponent<IsGrounded>();
+        //_isGrounded = GetComponent<IsGrounded>(); // tecnicamente ya no hace falta
     }
         
     void Start()
@@ -26,7 +26,7 @@ public class Engine : MonoBehaviour
     }
 
     void Update()
-    {        
+    {   
         //--Move--//
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);        
         if (Vector3.Distance(transform.position, movePoint.position) <= 0.5f)

@@ -13,12 +13,12 @@ public class InputSystemKeyboard : MonoBehaviour
     public event Action Hook = delegate { };
     public event Action PauseMenu = delegate { };
 
-    public CollisionStartIntro _startIntro; // Para comprobador si está en la "cinemática"
-    public CollisionCutscene _cutscene;
+    public CollisionCutscene _cutscene; //-------
+    public CollisionCapataz _capataz;
 
     void Update()
     {
-        if (!_startIntro.isCutsceneOn && !_cutscene.isCutsceneOn)
+        if (!_cutscene.isCutsceneOn && !_capataz.isCutsceneOn)
         {
             hor = Input.GetAxisRaw("Horizontal");
             ver = Input.GetAxisRaw("Vertical");

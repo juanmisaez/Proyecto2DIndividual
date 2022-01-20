@@ -13,13 +13,13 @@ public class CollisionCutscene : CollisionSystem
     {
         isCutsceneOn = true;
         camAnim.SetBool("cutscene1", true);
-        _dialogueTrigger.TriggerDialogue();
+        _dialogueTrigger.TriggerDialogue();        
     }
 
     public void StopCutscene()
     {
         isCutsceneOn = false;
         camAnim.SetBool("cutscene1", false);
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

@@ -9,22 +9,22 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueText;
     public Animator animator;
 
-    private Queue<string> frases;
+    private Queue<string> sentences;
 
     void Start()
     {
-        frases = new Queue<string>();
+        sentences = new Queue<string>();
     }
 
     public void StartDialogue (Dialogue dialogue)
     {
         animator.SetBool("IsOpen", true);
-        nameText.text = dialogue.nombre;
-        frases.Clear();
+        nameText.text = dialogue.name;
+        sentences.Clear();
 
-        foreach(string frase in dialogue.frases)
+        foreach(string frase in dialogue.sentences)
         {
-            frases.Enqueue(frase);
+            sentences.Enqueue(frase);
         }
         
         DisplayNextSentence();
@@ -32,20 +32,21 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if(frases.Count == 0)
+        if(sentences.Count == 0)
         {
             EndDialogue();
             return;
         }
 
-        string frase = frases.Dequeue();
-        dialogueText.text = frase;
+        string sentence = sentences.Dequeue();
+        dialogueText.text = sentence;
     }
 
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
-        FindObjectOfType<CollisionStartIntro>()?.StopCutscene();
         FindObjectOfType<CollisionCutscene>()?.StopCutscene();
+        FindObjectOfType<CollisionCapataz>()?.StopCutscene();
+        FindObjectOfType<CollisionCapatazProgression>()?.StopCutscene();
     }
 }

@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 147779717}
   m_Layer: 0
   m_Name: TriggerIntro
-  m_TagString: Untagged
+  m_TagString: IntroCinematic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -331,9 +331,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 147779713}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff81735072dba5a4f9dac199a3b3848c, type: 3}
+  m_Script: {fileID: 11500000, guid: 66a9b7763c661a542a5e1e92e42528be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
   isCutsceneOn: 0
   camAnim: {fileID: 1263226375}
   _dialogueTrigger: {fileID: 147779717}
@@ -390,15 +391,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    nombre: Capataz
-    frases:
+    name: Capataz
+    sentences:
     - "\xA1Hola Beak!\nMe alegro que te dejes caer por aqu\xED."
     - "La vieja mina se ha derrumbado y nos vendr\xEDa bien tu ayuda. \xBFQu\xE9
       me dices? \xBFNos echas una mano?"
-    - "\xA1Estupendo! Sab\xEDa que pod\xEDamos contar contigo.\nUn momento... Recuerdas
+    - "\xA1Estupendo! Sab\xEDa que pod\xEDamos contar contigo.\nun momento... Recuerdas
       c\xF3mo trabajar en la vieja mina \xBFcierto?"
-    - "Recuerda que con A y D puedes moverte y si apuntas en una direcc\xED\xF3n
-      y pulsas ESPACIO podr\xE1s golpear con tu pico."
+    - "Recuerda que con A y D puedes moverte y si miras en una direcci\xF3n y pulsas
+      ESPACIO podr\xE1s golpear con tu pico."
 --- !u!1 &229943868
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,7 +2234,7 @@ GameObject:
   - component: {fileID: 327281770}
   - component: {fileID: 327281772}
   - component: {fileID: 327281771}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerMovePoint
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -2312,7 +2313,9 @@ GameObject:
   - component: {fileID: 327773580}
   - component: {fileID: 327773583}
   - component: {fileID: 327773582}
+  - component: {fileID: 327773585}
   - component: {fileID: 327773581}
+  - component: {fileID: 327773584}
   m_Layer: 0
   m_Name: Nugget5
   m_TagString: Untagged
@@ -2343,10 +2346,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 327773579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f504b85085caf94f8b4164ad9a8c79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nugget: 1
+  maxHealth: 1
+  health: 0
 --- !u!61 &327773582
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2425,6 +2429,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &327773584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327773579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 984285044769edb478eed49192266137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &327773585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327773579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  nugget: 1
 --- !u!1 &356898926
 GameObject:
   m_ObjectHideFlags: 0
@@ -3217,8 +3247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27fd3a34199ae4248bb21da87a9f1b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startIntro: {fileID: 147779714}
-  _cutscene: {fileID: 669317217}
+  _cutscene: {fileID: 0}
+  _capataz: {fileID: 0}
 --- !u!114 &457162792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3281,6 +3311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26cb871e8b940da48aec98b7b065ad9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
   notOxygen: 1
 --- !u!61 &481491976
 BoxCollider2D:
@@ -3732,6 +3763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26cb871e8b940da48aec98b7b065ad9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
   notOxygen: 0
 --- !u!61 &589211420
 BoxCollider2D:
@@ -3920,7 +3952,7 @@ GameObject:
   - component: {fileID: 669317217}
   - component: {fileID: 669317216}
   m_Layer: 0
-  m_Name: TriggerNotMaxOres
+  m_Name: TriggerCapatazNotOre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3953,10 +3985,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    nombre: Capataz
-    frases:
-    - "Me parece que a\xFAn quedan cosas de valor ah\xED abajo.\nAnda no te hagas
-      el remol\xF3n e investiga bien."
+    name: Capataz
+    sentences:
+    - "Anda no te hagas el remol\xF3n y vuelve ah\xED abajo, seguro que a\xFAn queda
+      algo interesante por encontrar."
 --- !u!114 &669317217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3966,9 +3998,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 669317214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66a9b7763c661a542a5e1e92e42528be, type: 3}
+  m_Script: {fileID: 11500000, guid: 362a1edc2e41c62448b81e78008f55a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
   isCutsceneOn: 0
   camAnim: {fileID: 1263226375}
   _dialogueTrigger: {fileID: 669317216}
@@ -4522,7 +4555,9 @@ GameObject:
   - component: {fileID: 703252297}
   - component: {fileID: 703252300}
   - component: {fileID: 703252299}
+  - component: {fileID: 703252302}
   - component: {fileID: 703252298}
+  - component: {fileID: 703252301}
   m_Layer: 0
   m_Name: Nugget4
   m_TagString: Untagged
@@ -4553,10 +4588,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 703252296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f504b85085caf94f8b4164ad9a8c79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nugget: 1
+  maxHealth: 1
+  health: 0
 --- !u!61 &703252299
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4635,6 +4671,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &703252301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703252296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 984285044769edb478eed49192266137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &703252302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703252296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  nugget: 1
 --- !u!1 &707318662
 GameObject:
   m_ObjectHideFlags: 0
@@ -4741,7 +4803,9 @@ GameObject:
   - component: {fileID: 736964675}
   - component: {fileID: 736964678}
   - component: {fileID: 736964677}
+  - component: {fileID: 736964680}
   - component: {fileID: 736964676}
+  - component: {fileID: 736964679}
   m_Layer: 0
   m_Name: Nugget10
   m_TagString: Untagged
@@ -4772,10 +4836,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 736964674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f504b85085caf94f8b4164ad9a8c79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nugget: 1
+  maxHealth: 1
+  health: 0
 --- !u!61 &736964677
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4854,6 +4919,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &736964679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736964674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 984285044769edb478eed49192266137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &736964680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736964674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  nugget: 1
 --- !u!1 &745805340
 GameObject:
   m_ObjectHideFlags: 0
@@ -5144,7 +5235,9 @@ GameObject:
   - component: {fileID: 852516890}
   - component: {fileID: 852516893}
   - component: {fileID: 852516892}
+  - component: {fileID: 852516895}
   - component: {fileID: 852516891}
+  - component: {fileID: 852516894}
   m_Layer: 0
   m_Name: Nugget8
   m_TagString: Untagged
@@ -5175,10 +5268,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 852516889}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f504b85085caf94f8b4164ad9a8c79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nugget: 1
+  maxHealth: 1
+  health: 0
 --- !u!61 &852516892
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5257,6 +5351,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &852516894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852516889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 984285044769edb478eed49192266137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &852516895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852516889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  nugget: 1
 --- !u!1 &877168032
 GameObject:
   m_ObjectHideFlags: 3
@@ -6299,7 +6419,9 @@ GameObject:
   - component: {fileID: 1098910274}
   - component: {fileID: 1098910277}
   - component: {fileID: 1098910276}
+  - component: {fileID: 1098910279}
   - component: {fileID: 1098910275}
+  - component: {fileID: 1098910278}
   m_Layer: 0
   m_Name: Nugget9
   m_TagString: Untagged
@@ -6330,10 +6452,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1098910273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f504b85085caf94f8b4164ad9a8c79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nugget: 1
+  maxHealth: 1
+  health: 0
 --- !u!61 &1098910276
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6412,6 +6535,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1098910278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098910273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 984285044769edb478eed49192266137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1098910279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098910273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  nugget: 1
 --- !u!1 &1159166951
 GameObject:
   m_ObjectHideFlags: 0
@@ -6818,6 +6967,8 @@ GameObject:
   - component: {fileID: 1320120538}
   - component: {fileID: 1320120537}
   - component: {fileID: 1320120536}
+  - component: {fileID: 1320120540}
+  - component: {fileID: 1320120539}
   m_Layer: 0
   m_Name: Nugget1
   m_TagString: Untagged
@@ -6851,6 +7002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
   nugget: 1
 --- !u!61 &1320120537
 BoxCollider2D:
@@ -6930,6 +7082,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1320120539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320120534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 984285044769edb478eed49192266137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1320120540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320120534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f504b85085caf94f8b4164ad9a8c79c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  health: 0
 --- !u!1 &1329037087
 GameObject:
   m_ObjectHideFlags: 0
@@ -7043,7 +7221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1410131357}
   - component: {fileID: 1410131358}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LightPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8036,7 +8214,9 @@ GameObject:
   - component: {fileID: 1684859553}
   - component: {fileID: 1684859556}
   - component: {fileID: 1684859555}
+  - component: {fileID: 1684859558}
   - component: {fileID: 1684859554}
+  - component: {fileID: 1684859557}
   m_Layer: 0
   m_Name: Nugget7
   m_TagString: Untagged
@@ -8067,10 +8247,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1684859552}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f504b85085caf94f8b4164ad9a8c79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nugget: 1
+  maxHealth: 1
+  health: 0
 --- !u!61 &1684859555
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8149,6 +8330,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1684859557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684859552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 984285044769edb478eed49192266137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1684859558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684859552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  nugget: 1
 --- !u!1 &1702309575
 GameObject:
   m_ObjectHideFlags: 0
@@ -8669,7 +8876,7 @@ GameObject:
   - component: {fileID: 1820437732}
   - component: {fileID: 1820437735}
   - component: {fileID: 1820437736}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -8806,8 +9013,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27fd3a34199ae4248bb21da87a9f1b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startIntro: {fileID: 147779714}
-  _cutscene: {fileID: 669317217}
+  _cutscene: {fileID: 147779714}
+  _capataz: {fileID: 669317217}
 --- !u!114 &1820437727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8903,6 +9110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb417ec8f1e3cb42b828d7d86982a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
 --- !u!114 &1820437733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9444,7 +9652,9 @@ GameObject:
   - component: {fileID: 2022043386}
   - component: {fileID: 2022043389}
   - component: {fileID: 2022043388}
+  - component: {fileID: 2022043391}
   - component: {fileID: 2022043387}
+  - component: {fileID: 2022043390}
   m_Layer: 0
   m_Name: Nugget2
   m_TagString: Untagged
@@ -9475,10 +9685,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2022043385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f504b85085caf94f8b4164ad9a8c79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nugget: 1
+  maxHealth: 1
+  health: 0
 --- !u!61 &2022043388
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9557,6 +9768,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2022043390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022043385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 984285044769edb478eed49192266137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2022043391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022043385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  nugget: 1
 --- !u!1 &2024664822
 GameObject:
   m_ObjectHideFlags: 0
@@ -9588,9 +9825,103 @@ Transform:
   - {fileID: 481491977}
   - {fileID: 147779716}
   - {fileID: 669317215}
+  - {fileID: 2068296864}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2068296863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2068296864}
+  - component: {fileID: 2068296867}
+  - component: {fileID: 2068296866}
+  - component: {fileID: 2068296865}
+  m_Layer: 0
+  m_Name: TriggerCapatazProgression
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2068296864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068296863}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.66, y: 7.77, z: 0}
+  m_LocalScale: {x: 1.6370833, y: 7.3719964, z: 1.1101}
+  m_Children: []
+  m_Father: {fileID: 2024664823}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2068296865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068296863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071fce4bc18390e449e086267b038287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Capataz
+    sentences:
+    - "\xA1Bien hecho Beak! Has encontrado algunas pepitas de oro, y no son peque\xF1as."
+    - "Veo que tambi\xE9n has encontrado un pico entre los escombros, qu\xE9datelo,
+      seguro que te ser\xE1 mucho m\xE1s \xFAtil que ese viejo pico que llevas."
+--- !u!114 &2068296866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068296863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520f2107ec64fca4aaa6a74157edd5ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  isCutsceneOn: 0
+  camAnim: {fileID: 1263226375}
+  _dialogueTrigger: {fileID: 2068296865}
+--- !u!61 &2068296867
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068296863}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.8913913, y: -0.4451307}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.2470932, y: 0.14533305}
+  m_EdgeRadius: 0
 --- !u!1 &2085176911
 GameObject:
   m_ObjectHideFlags: 0
@@ -9962,7 +10293,9 @@ GameObject:
   - component: {fileID: 2089768863}
   - component: {fileID: 2089768866}
   - component: {fileID: 2089768865}
+  - component: {fileID: 2089768868}
   - component: {fileID: 2089768864}
+  - component: {fileID: 2089768867}
   m_Layer: 0
   m_Name: Nugget3
   m_TagString: Untagged
@@ -9993,10 +10326,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2089768862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f504b85085caf94f8b4164ad9a8c79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nugget: 1
+  maxHealth: 1
+  health: 0
 --- !u!61 &2089768865
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10075,3 +10409,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2089768867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089768862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 984285044769edb478eed49192266137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2089768868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089768862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  nugget: 1

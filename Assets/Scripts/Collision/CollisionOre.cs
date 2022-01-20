@@ -9,7 +9,7 @@ public class CollisionOre : CollisionSystem
     private int nugget = 1;
 
     protected override void OnCollision(Collider2D other)
-    {
+    {        
         other.gameObject.GetComponent<InventorySystem>()?.IncrementOre(nugget);
     }
 }

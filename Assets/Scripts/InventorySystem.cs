@@ -5,6 +5,7 @@ using System;
 
 public class InventorySystem : MonoBehaviour
 {
+    public static event Action InventoryFull = delegate { };
     public event Action<int> InventoryUpdated = delegate { };
 
     [SerializeField]
@@ -28,6 +29,7 @@ public class InventorySystem : MonoBehaviour
         {
             ores = maxOres;
             InventoryUpdated(ores);
+            InventoryFull();
         }
         else
         {

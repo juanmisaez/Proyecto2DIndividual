@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+// TESTING
+
 public class DamageSystem : MonoBehaviour
 {
     public event Action<int> UpdateDamage = delegate { };
