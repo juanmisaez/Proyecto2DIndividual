@@ -37,6 +37,12 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+    void BagEmpty()
+    {
+        ores = oresStart;
+        InventoryUpdated(ores);
+    }
+
     public int GetOres()
     {
         return ores;
@@ -45,5 +51,11 @@ public class InventorySystem : MonoBehaviour
     public void OnEnable()
     {
         ores = oresStart;
+        ScriptSystem.EmptyTheBag += BagEmpty;
+    }
+
+    void OnDisable()
+    {
+        ScriptSystem.EmptyTheBag -= BagEmpty;
     }
 }
