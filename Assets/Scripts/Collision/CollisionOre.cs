@@ -6,7 +6,7 @@ using System;
 public class CollisionOre : CollisionSystem
 {
     [SerializeField]
-    private int nugget = 1;
+    private int nugget = 1; // si la tiene el padre, no haría falta
 
     protected override void OnCollision(Collider2D other)
     {        

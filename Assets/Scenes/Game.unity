@@ -334,10 +334,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a9b7763c661a542a5e1e92e42528be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  phase: 0
   isCutsceneOn: 0
   camAnim: {fileID: 1263226375}
-  _dialogueTrigger: {fileID: 147779717}
+  _dialogue: []
 --- !u!61 &147779715
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -936,6 +936,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 1, y: -5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 5
+      m_TileSpriteIndex: 5
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 5, y: -5, z: 0}
     second:
       serializedVersion: 2
@@ -967,6 +977,26 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: -5, y: -4, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 5
+      m_TileSpriteIndex: 5
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 2, y: -4, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 5
+      m_TileSpriteIndex: 5
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 3, y: -4, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 5
@@ -1988,7 +2018,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 135
+  - m_RefCount: 138
     m_Data: {fileID: 11400000, guid: ef984846aa730d74793530ba12e3ef02, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
@@ -2001,10 +2031,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 135
+  - m_RefCount: 138
     m_Data: {fileID: -7001603268454492104, guid: 6682a834c80f97d4682efa26c2fe1774, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 135
+  - m_RefCount: 138
     m_Data:
       e00: 1
       e01: 0
@@ -2023,7 +2053,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 135
+  - m_RefCount: 138
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -2453,7 +2483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   nugget: 1
 --- !u!1 &356898926
 GameObject:
@@ -3247,8 +3276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27fd3a34199ae4248bb21da87a9f1b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cutscene: {fileID: 0}
-  _capataz: {fileID: 0}
 --- !u!114 &457162792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3311,7 +3338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26cb871e8b940da48aec98b7b065ad9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   notOxygen: 1
 --- !u!61 &481491976
 BoxCollider2D:
@@ -3763,7 +3789,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26cb871e8b940da48aec98b7b065ad9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   notOxygen: 0
 --- !u!61 &589211420
 BoxCollider2D:
@@ -4001,7 +4026,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 362a1edc2e41c62448b81e78008f55a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   isCutsceneOn: 0
   camAnim: {fileID: 1263226375}
   _dialogueTrigger: {fileID: 669317216}
@@ -4695,7 +4719,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   nugget: 1
 --- !u!1 &707318662
 GameObject:
@@ -4943,7 +4966,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   nugget: 1
 --- !u!1 &745805340
 GameObject:
@@ -5375,7 +5397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   nugget: 1
 --- !u!1 &877168032
 GameObject:
@@ -6559,7 +6580,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   nugget: 1
 --- !u!1 &1159166951
 GameObject:
@@ -7002,7 +7022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   nugget: 1
 --- !u!61 &1320120537
 BoxCollider2D:
@@ -8354,7 +8373,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   nugget: 1
 --- !u!1 &1702309575
 GameObject:
@@ -8453,6 +8471,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702309575}
   m_CullTransparentMesh: 1
+--- !u!1 &1715590945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1715590947}
+  - component: {fileID: 1715590946}
+  m_Layer: 0
+  m_Name: SricptManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1715590946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715590945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763c883d1e133ac44961dd902f01d21c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1715590947
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715590945}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1728317448
 GameObject:
   m_ObjectHideFlags: 0
@@ -8873,9 +8934,9 @@ GameObject:
   - component: {fileID: 1820437734}
   - component: {fileID: 1820437728}
   - component: {fileID: 1820437733}
-  - component: {fileID: 1820437732}
   - component: {fileID: 1820437735}
   - component: {fileID: 1820437736}
+  - component: {fileID: 1820437732}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -9013,8 +9074,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27fd3a34199ae4248bb21da87a9f1b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cutscene: {fileID: 147779714}
-  _capataz: {fileID: 669317217}
 --- !u!114 &1820437727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9107,7 +9166,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1820437720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cb417ec8f1e3cb42b828d7d86982a54, type: 3}
+  m_Script: {fileID: 11500000, guid: a24c653d1cb03664dbf4d49508d92049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
@@ -9792,7 +9851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   nugget: 1
 --- !u!1 &2024664822
 GameObject:
@@ -9892,7 +9950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520f2107ec64fca4aaa6a74157edd5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   isCutsceneOn: 0
   camAnim: {fileID: 1263226375}
   _dialogueTrigger: {fileID: 2068296865}
@@ -10433,5 +10490,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   nugget: 1

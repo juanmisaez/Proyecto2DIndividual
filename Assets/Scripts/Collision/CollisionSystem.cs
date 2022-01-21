@@ -5,8 +5,7 @@ using System;
 
 public class CollisionSystem : MonoBehaviour
 {
-    [SerializeField]
-    private int damage;
+    // valor X, luego cada uno lo uso para lo que lo necesite
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,6 +14,6 @@ public class CollisionSystem : MonoBehaviour
 
     protected virtual void OnCollision(Collider2D other)
     {
-        other.gameObject.GetComponent<HealthSystem>()?.ReduceHealth(damage);
+        
     }
 }

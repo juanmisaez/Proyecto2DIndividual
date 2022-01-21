@@ -46,7 +46,7 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
         FindObjectOfType<CollisionCutscene>()?.StopCutscene();
-        FindObjectOfType<CollisionCapataz>()?.StopCutscene();
-        FindObjectOfType<CollisionCapatazProgression>()?.StopCutscene();
+        FindObjectOfType<CollisionCapataz>()?.StopCutscene(); //--No hará falta
+        FindObjectOfType<CollisionCapatazProgression>()?.StopCutscene(); //--No hará falta
     }
 }

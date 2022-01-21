@@ -13,13 +13,13 @@ public class InputSystemKeyboard : MonoBehaviour
     public event Action Hook = delegate { };
     public event Action PauseMenu = delegate { };
 
-    public CollisionCutscene _cutscene; //-------
-    public CollisionCapataz _capataz;
+    //public CollisionCutscene _cutscene; //-------
+    //public CollisionCapataz _capataz;
 
     void Update()
     {
-        if (!_cutscene.isCutsceneOn && !_capataz.isCutsceneOn)
-        {
+        //if (!_cutscene.isCutsceneOn && !_capataz.isCutsceneOn)
+        //{
             hor = Input.GetAxisRaw("Horizontal");
             ver = Input.GetAxisRaw("Vertical");
             space = Input.GetKeyUp(KeyCode.Space);
@@ -38,6 +38,6 @@ public class InputSystemKeyboard : MonoBehaviour
             {
                 Hook(); // ---
             }*/
-        }
+        //}
     }
 }
