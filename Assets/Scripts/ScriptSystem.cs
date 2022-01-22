@@ -36,7 +36,7 @@ public class ScriptSystem : MonoBehaviour
 
     public void PhaseSelection(int phase)
     {
-        if(phase == 0)  // Intro
+        if(phase == 0) // Intro
         {
             Debug.Log("FASE 0, intro");
             PhaseUp();
