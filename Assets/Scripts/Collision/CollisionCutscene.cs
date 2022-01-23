@@ -10,7 +10,6 @@ public class CollisionCutscene : CollisionSystem
     protected override void OnCollision(Collider2D other)
     {        
         other.gameObject.GetComponent<PhaseSystem>()?.PhaseUpdate(GetPhase());
-        //GetComponent<ScriptSystem>().PhaseSelection(phase);
     }
 
     void CurrentPhase(int newPhase) // Actualiza la fase que le dice el ScriptSystem

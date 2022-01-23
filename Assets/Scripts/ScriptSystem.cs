@@ -13,29 +13,6 @@ public class ScriptSystem : MonoBehaviour
     private int phase;
     private int beforePhase;
 
-    /*
-    public class CollisionCutscene : CollisionSystem
-{
-    public bool isCutsceneOn;
-    public Animator camAnim; // la camara
-    public DialogueTrigger _dialogueTrigger;
-
-    protected override void OnTriggerEnter2D(Collider2D collision)
-    {
-        isCutsceneOn = true;
-        camAnim.SetBool("cutscene1", true);
-        _dialogueTrigger.TriggerDialogue();        
-    }
-
-    public void StopCutscene()
-    {
-        isCutsceneOn = false;
-        camAnim.SetBool("cutscene1", false);
-        Destroy(gameObject); //--- Que lo gestione el ScriptManager
-    }
-}
-    */
-
     public void PhaseSelection(int phase)
     {
         if(phase == 0) // Intro
@@ -77,7 +54,6 @@ public class ScriptSystem : MonoBehaviour
 
     void NextPhase()
     {
-        //phase += 1;
         phase += beforePhase;
         UpdatePhase(phase);
     }
@@ -85,7 +61,6 @@ public class ScriptSystem : MonoBehaviour
     void SavePhase(int currentPhase)
     {
         beforePhase = currentPhase;
-        Debug.Log("la fase anterior es " + beforePhase); //---
     }
 
     void ReturnPhase()
