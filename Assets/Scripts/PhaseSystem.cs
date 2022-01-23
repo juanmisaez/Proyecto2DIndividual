@@ -6,6 +6,7 @@ using System;
 public class PhaseSystem : MonoBehaviour
 {
     public static event Action<int> SearchPhase = delegate { };
+    public static event Action<int> DecidePhase = delegate { };
 
     [SerializeField]
     private int currentPhase;
@@ -24,7 +25,8 @@ public class PhaseSystem : MonoBehaviour
     void NewPhase(int phase)
     {
         currentPhase = phase;
-        SearchPhase(GetPhase());
+        SearchPhase(GetPhase()); // 
+        //DecidePhase(GetPhase()); // 
     }
 
     public int GetPhase()

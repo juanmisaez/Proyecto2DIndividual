@@ -7,6 +7,7 @@ public class ScriptSystem : MonoBehaviour
 {    
     public static event Action EmptyTheBag = delegate { };
     public static event Action<int> UpdatePhase = delegate { };
+    public event Action<int> SelectDialogue = delegate { };
 
     private bool bag;
     private int phase;       
@@ -43,7 +44,7 @@ public class ScriptSystem : MonoBehaviour
         }
         else if(!bag) // Mochila vacía o < 3
         {
-            Debug.Log("FASE 1, mochila vacía");
+            Debug.Log("FASE 1/2/3, mochila vacía");
         }
         else if(phase == 1 && bag) // Primer pedido realizado
         {

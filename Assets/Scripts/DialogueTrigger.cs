@@ -13,14 +13,5 @@ public class DialogueTrigger : MonoBehaviour
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         //FindObjectOfType<DialogueManager>().StartDialogue(dialogue[phase]);
     }
-    /*
-    public void OnEnable()
-    {
-        PhaseSystem.SearchPhase += TriggerDialogue;
-    }
-
-    void OnDisable()
-    {
-        PhaseSystem.SearchPhase -= TriggerDialogue;
-    }*/
+    
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CutsceneManager : MonoBehaviour
+public class CutsceneManager : MonoBehaviour //CutsceneSystem
 {
     public bool isCutsceneOn;
     public Animator camAnim; // la camara
@@ -14,15 +14,21 @@ public class CutsceneManager : MonoBehaviour
     {
         isCutsceneOn = true;
         camAnim.SetBool("cutscene1", true);
-        _dialogueTrigger.TriggerDialogue();
+        _dialogueTrigger.TriggerDialogue(/*text*/);
     }
 
     public void StopCutscene()
     {
         isCutsceneOn = false;
         camAnim.SetBool("cutscene1", false);
-        //Destroy(gameObject); //--- quitarlo
+        /*if(text == 0)
+        {
+            Destroy(gameObject); //--- quitarlo
+        }*/
+
     }
+
+    
     /*
     void Dialogue(int dialogue)
     {
