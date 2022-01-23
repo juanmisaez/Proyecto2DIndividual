@@ -323,7 +323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &147779714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,15 +390,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Capataz
+  - name: Capataz
     sentences:
-    - "\xA1Hola Beak!\nMe alegro que te dejes caer por aqu\xED."
+    - "\xA1Hola Beak!\nMe alegro que te dejes caer por aqu\xED.\r"
     - "La vieja mina se ha derrumbado y nos vendr\xEDa bien tu ayuda. \xBFQu\xE9
-      me dices? \xBFNos echas una mano?"
-    - "\xA1Estupendo! Sab\xEDa que pod\xEDamos contar contigo.\nun momento... Recuerdas
-      c\xF3mo trabajar en la vieja mina \xBFcierto?"
+      me dices? \xBFNos echas una mano?\r"
+    - "\xA1Estupendo! Sab\xEDa que pod\xEDamos contar contigo.\r Un momento... Recuerdas
+      c\xF3mo trabajar en la vieja mina \xBFcierto?\r\n"
     - "Recuerda que con A y D puedes moverte y si miras en una direcci\xF3n y pulsas
-      ESPACIO podr\xE1s golpear con tu pico."
+      ESPACIO podr\xE1s golpear con tu pico.\r\n"
+  - name: Capataz
+    sentences:
+    - "Anda no te hagas el remol\xF3n y vuelve ah\xED abajo, seguro que a\xFAn queda
+      algo interesante por encontrar.\r"
+  - name: Capataz
+    sentences:
+    - "\xA1Bien hecho Beak! Has encontrado algunas pepitas de oro, y no son peque\xF1as.\r"
+    - "Veo que tambi\xE9n has encontrado un pico entre los escombros, qu\xE9datelo,
+      seguro que te ser\xE1 mucho m\xE1s \xFAtil que ese viejo pico que llevas."
+  - name: Capataz
+    sentences:
+    - "SOLO TE QUEDA UNA MISI\xD3N M\xC1S"
+  - name: Capataz
+    sentences:
+    - "ULTIMO DI\xC1LOGO"
 --- !u!114 &147779718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2525,7 +2540,7 @@ GameObject:
   - component: {fileID: 335646363}
   - component: {fileID: 335646362}
   m_Layer: 0
-  m_Name: Nugget1 (1)
+  m_Name: Nugget1_x3_TEST
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2539,7 +2554,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335646360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.46, y: 4.58, z: 0}
+  m_LocalPosition: {x: 0.5, y: 4.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 650216092}
@@ -2583,7 +2598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nugget: 1
+  nugget: 3
 --- !u!61 &335646365
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4165,7 +4180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &669317215
 Transform:
   m_ObjectHideFlags: 0
@@ -4178,7 +4193,7 @@ Transform:
   m_LocalScale: {x: 1.6370833, y: 7.3719964, z: 1.1101}
   m_Children: []
   m_Father: {fileID: 2024664823}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &669317216
 MonoBehaviour:
@@ -4192,11 +4207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071fce4bc18390e449e086267b038287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    name: Capataz
-    sentences:
-    - "Anda no te hagas el remol\xF3n y vuelve ah\xED abajo, seguro que a\xFAn queda
-      algo interesante por encontrar."
+  dialogue: []
 --- !u!61 &669317218
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5649,6 +5660,147 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &896137508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 896137509}
+  - component: {fileID: 896137514}
+  - component: {fileID: 896137513}
+  - component: {fileID: 896137512}
+  - component: {fileID: 896137511}
+  - component: {fileID: 896137510}
+  m_Layer: 0
+  m_Name: TriggerCapataz
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &896137509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896137508}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.66, y: 7.77, z: 0}
+  m_LocalScale: {x: 1.6370833, y: 7.3719964, z: 1.1101}
+  m_Children: []
+  m_Father: {fileID: 2024664823}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &896137510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896137508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceca7c2f6d87df844bc707a95d80ad6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCutsceneOn: 0
+  camAnim: {fileID: 1263226375}
+  _dialogueTrigger: {fileID: 896137512}
+--- !u!114 &896137511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896137508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763c883d1e133ac44961dd902f01d21c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &896137512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896137508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071fce4bc18390e449e086267b038287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - name: Capataz
+    sentences:
+    - "\xA1Hola Beak!\nMe alegro que te dejes caer por aqu\xED.\r"
+    - "La vieja mina se ha derrumbado y nos vendr\xEDa bien tu ayuda. \xBFQu\xE9
+      me dices? \xBFNos echas una mano?\r"
+    - "\xA1Estupendo! Sab\xEDa que pod\xEDamos contar contigo.\r Un momento... Recuerdas
+      c\xF3mo trabajar en la vieja mina \xBFcierto?\r\n"
+    - "Recuerda que con A y D puedes moverte y si miras en una direcci\xF3n y pulsas
+      ESPACIO podr\xE1s golpear con tu pico.\r\n"
+    - "\xA1Y no te vayas a olvidar de sacar la cabeza para respirar!"
+  - name: Capataz
+    sentences:
+    - "Anda no te hagas el remol\xF3n y vuelve ah\xED abajo, seguro que a\xFAn queda
+      algo interesante por encontrar.\r"
+  - name: Capataz
+    sentences:
+    - "\xA1Bien hecho Beak! Has encontrado algunas pepitas de oro, y no son peque\xF1as.\r"
+    - "Veo que tambi\xE9n has encontrado un pico entre los escombros, qu\xE9datelo,
+      te ser\xE1 mucho m\xE1s \xFAtil que ese viejo pico que llevas."
+    - "Seguro que te permite explorar nuevas galer\xEDas sepultadas, anda vuelve
+      a bajar y abre bien los ojos."
+  - name: Capataz
+    sentences:
+    - "SEGUNDO PEDIDO COMPLETADO\nSOLO TE QUEDA UNA MISI\xD3N M\xC1S"
+  - name: Capataz
+    sentences:
+    - "ULTIMO DI\xC1LOGO\nTE HAS PASADO EL JUEGO"
+--- !u!114 &896137513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896137508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a9b7763c661a542a5e1e92e42528be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phase: 0
+--- !u!61 &896137514
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896137508}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.8913913, y: -0.4451307}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.2470932, y: 0.14533305}
+  m_EdgeRadius: 0
 --- !u!1 &942888038
 GameObject:
   m_ObjectHideFlags: 0
@@ -6207,7 +6359,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953239986}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8526387, y: 1.8150892, z: -10}
+  m_LocalPosition: {x: 3.8526387, y: 1.8150892, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 997172188}
@@ -8379,7 +8531,7 @@ GameObject:
   - component: {fileID: 1646574989}
   - component: {fileID: 1646574988}
   m_Layer: 0
-  m_Name: Nugget1 (2)
+  m_Name: Nugget2_x3_TEST
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8393,7 +8545,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646574986}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 4.62, z: 0}
+  m_LocalPosition: {x: -0.49, y: 4.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 650216092}
@@ -8437,7 +8589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nugget: 1
+  nugget: 3
 --- !u!61 &1646574991
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9384,7 +9536,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820437720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 8.31, z: 0}
+  m_LocalPosition: {x: 3.5, y: 8.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.6545}
   m_Children:
   - {fileID: 327281770}
@@ -9620,7 +9772,7 @@ GameObject:
   - component: {fileID: 1874539143}
   - component: {fileID: 1874539142}
   m_Layer: 0
-  m_Name: Nugget1 (3)
+  m_Name: Nugget3_x3_TEST
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9634,7 +9786,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874539140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.96, y: 4.98, z: 0}
+  m_LocalPosition: {x: -1.63, y: 4.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 650216092}
@@ -9678,7 +9830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be6c38a846db8c40bfb4254b87ba78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nugget: 1
+  nugget: 3
 --- !u!61 &1874539145
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10408,6 +10560,7 @@ Transform:
   - {fileID: 589211421}
   - {fileID: 481491977}
   - {fileID: 147779716}
+  - {fileID: 896137509}
   - {fileID: 669317215}
   - {fileID: 2068296864}
   m_Father: {fileID: 0}
@@ -10433,7 +10586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2068296864
 Transform:
   m_ObjectHideFlags: 0
@@ -10446,7 +10599,7 @@ Transform:
   m_LocalScale: {x: 1.6370833, y: 7.3719964, z: 1.1101}
   m_Children: []
   m_Father: {fileID: 2024664823}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2068296865
 MonoBehaviour:
@@ -10460,12 +10613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071fce4bc18390e449e086267b038287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    name: Capataz
-    sentences:
-    - "\xA1Bien hecho Beak! Has encontrado algunas pepitas de oro, y no son peque\xF1as."
-    - "Veo que tambi\xE9n has encontrado un pico entre los escombros, qu\xE9datelo,
-      seguro que te ser\xE1 mucho m\xE1s \xFAtil que ese viejo pico que llevas."
+  dialogue: []
 --- !u!114 &2068296866
 MonoBehaviour:
   m_ObjectHideFlags: 0
