@@ -16,7 +16,7 @@ public class CollisionCapataz : CollisionSystem
         {
             isCutsceneOn = true;
             camAnim.SetBool("cutscene1", true);
-            _dialogueTrigger.TriggerDialogue();
+            //_dialogueTrigger.TriggerDialogue();
         }
     }
 

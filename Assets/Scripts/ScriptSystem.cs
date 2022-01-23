@@ -5,9 +5,9 @@ using System;
 
 public class ScriptSystem : MonoBehaviour
 {    
-    public static event Action EmptyTheBag = delegate { };
-    public static event Action<int> UpdatePhase = delegate { };
-    public event Action<int> SelectDialogue = delegate { };
+    public static event Action EmptyTheBag = delegate { }; // Al InventorSystem
+    public static event Action<int> UpdatePhase = delegate { }; // Al CollisionCutscene
+    public event Action<int> SelectDialogue = delegate { }; // Al CutsceneManager
 
     private bool bag;
     private int phase;       
@@ -40,28 +40,31 @@ public class ScriptSystem : MonoBehaviour
         if(phase == 0) // Intro
         {
             Debug.Log("FASE 0, intro");
+            SelectDialogue(phase);
             PhaseUp();
         }
         else if(!bag) // Mochila vacía o < 3
         {
             Debug.Log("FASE 1/2/3, mochila vacía");
+            SelectDialogue(phase);
         }
         else if(phase == 1 && bag) // Primer pedido realizado
         {
             Debug.Log("FASE 1, primer pedido completo");
+            SelectDialogue(phase);
             BagEmpty();
-            PhaseUp();
         }
         else if (phase == 2 && bag) // Segundo pedido realizado
         {
             Debug.Log("FASE 2, segundo pedido completo");
+            SelectDialogue(phase);
             BagEmpty();
-            PhaseUp();
         }
         else if (phase == 3 && bag) // Tercer y último pedido realizado
         {
             Debug.Log("FASE 3, tercer pedido completo");
-            BagEmpty();
+            SelectDialogue(phase);
+            //BagEmpty();
         }
     }
 
@@ -74,7 +77,7 @@ public class ScriptSystem : MonoBehaviour
     void BagFull()
     {
         bag = true; // al llenarse la mochila
-        //PhaseUp(); // pasa a la siguiente fase
+        PhaseUp();
     }
 
     void BagEmpty()

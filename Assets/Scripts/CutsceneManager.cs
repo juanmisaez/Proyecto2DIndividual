@@ -10,30 +10,43 @@ public class CutsceneManager : MonoBehaviour //CutsceneSystem
 
     //private int text;
 
+    void Dialogue(int dialogue)
+    {
+        //text = dialogue;
+
+        isCutsceneOn = true;
+        camAnim.SetBool("cutscene1", true);
+        _dialogueTrigger.TriggerDialogue(dialogue);
+    }
+    /*
     void OnTriggerEnter2D(Collider2D collision)
     {
         isCutsceneOn = true;
         camAnim.SetBool("cutscene1", true);
-        _dialogueTrigger.TriggerDialogue(/*text*/);
-    }
+        _dialogueTrigger.TriggerDialogue(GetText());
+    }*/
 
     public void StopCutscene()
     {
         isCutsceneOn = false;
         camAnim.SetBool("cutscene1", false);
+
         /*if(text == 0)
         {
-            Destroy(gameObject); //--- quitarlo
+            Destroy(gameObject);
         }*/
-
     }
 
-    
     /*
     void Dialogue(int dialogue)
     {
         text = dialogue;
     }
+    
+    public int GetText()
+    {
+        return text;
+    }*/
 
     void OnEnable()
     {
@@ -43,5 +56,5 @@ public class CutsceneManager : MonoBehaviour //CutsceneSystem
     void OnDisable()
     {
         GetComponent<ScriptSystem>().SelectDialogue -= Dialogue;
-    }*/
+    }
 }
