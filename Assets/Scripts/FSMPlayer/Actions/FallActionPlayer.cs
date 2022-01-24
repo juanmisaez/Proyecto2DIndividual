@@ -12,6 +12,7 @@ public class FallActionPlayer : FSM.Action
         controller.SetAnimation("move", false);
         controller.SetAnimation("fall", true);
         controller.SetAnimation("dig", false);
+        controller.SetAnimation("lookDown", false);
         //controller.SetAnimation("climb", false);
     }
 }

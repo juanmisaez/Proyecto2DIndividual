@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 public class CollisionEnterMine : CollisionSystem
-{
+{    
     [SerializeField]
     private bool notOxygen;
 

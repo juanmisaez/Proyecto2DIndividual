@@ -24,7 +24,7 @@ public class OxygenSystem : MonoBehaviour
     {
         OxygenUpdated(GetOxygen());
         drown = false;
-        damage = 3; // Sin determinar hasta el final ***
+        damage = 2; // 3 es mucho
     }
 
     private void Update()
@@ -38,7 +38,7 @@ public class OxygenSystem : MonoBehaviour
 
         if (!notOxygen)
         {
-            IncrementOxygen(damage * 3);
+            IncrementOxygen(damage);
         }
         else if(notOxygen)
         {
@@ -71,6 +71,7 @@ public class OxygenSystem : MonoBehaviour
     public void IncrementOxygen(int regen)
     {        
         oxygen += regen;
+
         if (oxygen >= maxOxygen)
         {
             oxygen = maxOxygen;

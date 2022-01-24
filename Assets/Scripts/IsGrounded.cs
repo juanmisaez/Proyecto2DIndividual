@@ -6,6 +6,7 @@ using System;
 public class IsGrounded : MonoBehaviour
 {
     public event Action<bool, bool> Ground = delegate { };
+    public event Action<bool> Roof = delegate { };
 
     public float skinWidth = 0.1f; // Tamañano del cast
     const int layerGround = 7; // Numero de layer
@@ -15,6 +16,8 @@ public class IsGrounded : MonoBehaviour
     public bool onGrounded;
     public bool layer1;
     public bool layer2;
+
+    public bool layer3; //---TEST---
 
     void Start()
     {
@@ -28,6 +31,10 @@ public class IsGrounded : MonoBehaviour
         layer2 = Physics2D.CapsuleCast(position, _capsule.size, _capsule.direction, 0, -Vector2.up, skinWidth, (1 << layerStructure));
 
         Ground(layer1, layer2);
-        //Debug.Log("Detecta tierra Bola es: " + onGrounded);
+
+        //---TEST---
+        layer3 = Physics2D.CapsuleCast(position, _capsule.size, _capsule.direction, 0, Vector2.up, skinWidth, (1 << layerStructure));
+        Roof(layer3);
+        //---TEST---
     }
 }

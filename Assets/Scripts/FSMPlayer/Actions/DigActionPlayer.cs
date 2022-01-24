@@ -12,6 +12,7 @@ public class DigActionPlayer : FSM.Action
         controller.SetAnimation("move", false);
         controller.SetAnimation("fall", false);
         controller.SetAnimation("dig", true);
+        controller.SetAnimation("lookDown", false);
         //controller.SetAnimation("climb", false);
     }
 }

@@ -9657,6 +9657,7 @@ MonoBehaviour:
   onGrounded: 0
   layer1: 0
   layer2: 0
+  layer3: 0
 --- !u!70 &1820437731
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -49,7 +49,12 @@ namespace FSM
 
         public float GetMoveX()
         {
-            return _inputSystemKeyboard.hor;            
+            return _inputSystemKeyboard.hor;
+        }
+
+        public float GetMoveY()
+        {
+            return _inputSystemKeyboard.ver;
         }
 
         public bool GetFall()

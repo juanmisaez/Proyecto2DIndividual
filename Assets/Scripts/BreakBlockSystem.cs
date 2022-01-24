@@ -72,7 +72,7 @@ public class BreakBlockSystem : MonoBehaviour
         
         TileBase t = map.GetTile(new Vector3Int((int)pos.x, (int)pos.y,0));
 
-        Debug.Log("nombre " + t.name);
+        //Debug.Log("nombre " + t.name);
 
         if(t.name == "Terreno_2") // el marrón
         {

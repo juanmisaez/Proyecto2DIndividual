@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using FSM;
 
-[CreateAssetMenu(menuName = "FSM/Player/Action/Move")]
-public class MoveActionPlayer : FSM.Action
+[CreateAssetMenu(menuName = "FSM/Player/Action/LookDown")]
+public class LookDownActionPlayer : FSM.Action
 {
     public override void Act(Controller controller)
     {
         controller.SetAnimation("idle", false);
-        controller.SetAnimation("move", true);
+        controller.SetAnimation("move", false);
         controller.SetAnimation("fall", false);
         controller.SetAnimation("dig", false);
-        controller.SetAnimation("lookDown", false);
+        controller.SetAnimation("lookDown", true);
         //controller.SetAnimation("climb", false);
     }
 }

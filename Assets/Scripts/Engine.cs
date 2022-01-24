@@ -12,6 +12,8 @@ public class Engine : MonoBehaviour
     private LayerMask obstacle;
 
     private bool walkableLayer;
+    private bool roofLayer; //---TEST---
+
 
     private InputSystemKeyboard _inputSystem;
     public Rigidbody2D ballRb;
@@ -32,27 +34,40 @@ public class Engine : MonoBehaviour
     }
 
     void Update()
-    {   
+    {
+        bool obstacleHor = Physics2D.OverlapCircle(movePoint.position + new Vector3(_inputSystem.hor, 0f, 0f), .1f, obstacle); // Comprobar si coincide con la capa "obstacle" 
+        bool obstacleVer = Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, _inputSystem.ver, 0f), .1f, obstacle); // Comprobar si coincide con la capa "obstacle" 
+
         //--Move--//
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);        
         if (Vector3.Distance(transform.position, movePoint.position) <= 0.5f)
         {
-            if (Mathf.Abs(_inputSystem.hor) == 1f /*&& _isGrounded.isGrounded*/)
+            if (Mathf.Abs(_inputSystem.hor) == 1f && (walkableLayer == true || roofLayer == true))
             {
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(_inputSystem.hor, 0f, 0f), .1f, obstacle)) // Comprobar si coincide con la capa "obstacle" 
+                if (!obstacleHor)
                 {
+                    if (Mathf.Sign(ballRb.gravityScale) == -1)
+                    {
+                        ballRb.gravityScale *= -1;
+                    }
                     movePoint.position += new Vector3(_inputSystem.hor, 0f, 0f);
                 }
             }
             // -------------------------------------------   
             // ** Provisional para saltar **
-            else if (Mathf.Abs(_inputSystem.ver) == 1f && walkableLayer == true)
+            else if (Mathf.Abs(_inputSystem.ver) == 1f && walkableLayer == true )
             {
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, _inputSystem.ver, 0f), .1f, obstacle)) // Comprobar si coincide con la capa "obstacle"
+                if (!obstacleVer) // hor
                 {
-                    //movePoint.position += new Vector3(0f, _inputSystem.ver + 2, 0f); // + 3 // con el Rigidbody2D.velocity
-                    _playerRb.velocity = new Vector2(_playerRb.velocity.x, 10);
-                    ballRb.velocity = new Vector2(ballRb.velocity.x, 10);
+                    ballRb.gravityScale *= -1;
+
+                    /*for(int i = 0; i < 2; i++)
+                    {                        
+                        movePoint.position += new Vector3(0f, _inputSystem.ver + i, 0f);
+                    }*/
+
+                    //_playerRb.velocity = new Vector2(_playerRb.velocity.x, 10);
+                    //ballRb.velocity = new Vector2(ballRb.velocity.x, 10);
                 }
             }
             // -------------------------------------------
@@ -82,14 +97,29 @@ public class Engine : MonoBehaviour
             walkableLayer = true;
         }
     }
+    //---------------TEST------------------
+    void UnderRoof(bool underRoof)
+    {
+        if(underRoof)
+        {
+            roofLayer = true;
+        }
+        else
+        {
+            roofLayer = false;
+        }
+    }
+    //---------------TEST------------------
 
     void OnEnable()
     {
         GetComponent<IsGrounded>().Ground += OnGround;
+        GetComponent<IsGrounded>().Roof += UnderRoof; //---TEST---
     }
 
     void OnDisable()
     {
         GetComponent<IsGrounded>().Ground -= OnGround;
+        GetComponent<IsGrounded>().Roof -= UnderRoof; //---TEST---
     }
 }
