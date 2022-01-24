@@ -6,7 +6,7 @@ using System;
 public class IsGrounded : MonoBehaviour
 {
     public event Action<bool, bool> Ground = delegate { };
-    public event Action<bool> Roof = delegate { };
+    public event Action<bool, bool> Roof = delegate { };
 
     public float skinWidth = 0.1f; // Tamañano del cast
     const int layerGround = 7; // Numero de layer
@@ -14,10 +14,11 @@ public class IsGrounded : MonoBehaviour
     CapsuleCollider2D _capsule;
 
     public bool onGrounded;
-    public bool layer1;
-    public bool layer2;
+    public bool floor1;
+    public bool floor2;
 
-    public bool layer3; //---TEST---
+    public bool roof1; //---TEST---
+    public bool roof2; //---TEST---
 
     void Start()
     {
@@ -27,14 +28,15 @@ public class IsGrounded : MonoBehaviour
     void Update()
     {
         Vector2 position = (Vector2)transform.position + _capsule.offset;
-        layer1 = Physics2D.CapsuleCast(position, _capsule.size, _capsule.direction, 0, -Vector2.up, skinWidth, (1 << layerGround));
-        layer2 = Physics2D.CapsuleCast(position, _capsule.size, _capsule.direction, 0, -Vector2.up, skinWidth, (1 << layerStructure));
+        floor1 = Physics2D.CapsuleCast(position, _capsule.size, _capsule.direction, 0, -Vector2.up, skinWidth, (1 << layerGround));
+        floor2 = Physics2D.CapsuleCast(position, _capsule.size, _capsule.direction, 0, -Vector2.up, skinWidth, (1 << layerStructure));
 
-        Ground(layer1, layer2);
+        Ground(floor1, floor2);
 
         //---TEST---
-        layer3 = Physics2D.CapsuleCast(position, _capsule.size, _capsule.direction, 0, Vector2.up, skinWidth, (1 << layerStructure));
-        Roof(layer3);
+        roof1 = Physics2D.CapsuleCast(position, _capsule.size, _capsule.direction, 0, Vector2.up, skinWidth, (1 << layerGround));
+        roof2 = Physics2D.CapsuleCast(position, _capsule.size, _capsule.direction, 0, Vector2.up, skinWidth, (1 << layerStructure));
+        Roof(roof1, roof2);
         //---TEST---
     }
 }

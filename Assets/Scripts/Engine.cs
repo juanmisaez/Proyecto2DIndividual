@@ -98,15 +98,15 @@ public class Engine : MonoBehaviour
         }
     }
     //---------------TEST------------------
-    void UnderRoof(bool underRoof)
+    void UnderRoof(bool underGround, bool underStructure)
     {
-        if(underRoof)
+        if(underGround == false && underStructure == false)
         {
-            roofLayer = true;
+            roofLayer = false;
         }
         else
         {
-            roofLayer = false;
+            roofLayer = true;
         }
     }
     //---------------TEST------------------
