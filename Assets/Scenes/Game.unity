@@ -375,7 +375,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2024664823}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &147779717
 MonoBehaviour:
@@ -589,7 +589,7 @@ GameObject:
   - component: {fileID: 239727807}
   - component: {fileID: 239727808}
   m_Layer: 8
-  m_Name: Estructura
+  m_Name: Estructure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2545,7 +2545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &335646361
 Transform:
   m_ObjectHideFlags: 0
@@ -5049,7 +5049,7 @@ GameObject:
   - component: {fileID: 736964676}
   - component: {fileID: 736964679}
   m_Layer: 0
-  m_Name: Nugget10
+  m_Name: Nugget9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5480,7 +5480,7 @@ GameObject:
   - component: {fileID: 852516891}
   - component: {fileID: 852516894}
   m_Layer: 0
-  m_Name: Nugget8
+  m_Name: Nugget7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5693,7 +5693,7 @@ Transform:
   m_LocalScale: {x: 1.6370833, y: 7.3719964, z: 1.1101}
   m_Children: []
   m_Father: {fileID: 2024664823}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &896137510
 MonoBehaviour:
@@ -6524,7 +6524,7 @@ MonoBehaviour:
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
-  m_SoftZoneWidth: 0.8
+  m_SoftZoneWidth: 0.89
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
   m_BiasY: 0
@@ -6804,7 +6804,7 @@ GameObject:
   - component: {fileID: 1098910275}
   - component: {fileID: 1098910278}
   m_Layer: 0
-  m_Name: Nugget9
+  m_Name: Nugget8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8536,7 +8536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1646574987
 Transform:
   m_ObjectHideFlags: 0
@@ -8749,7 +8749,7 @@ GameObject:
   - component: {fileID: 1684859554}
   - component: {fileID: 1684859557}
   m_Layer: 0
-  m_Name: Nugget7
+  m_Name: Nugget6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9604,6 +9604,7 @@ MonoBehaviour:
   obstacle:
     serializedVersion: 2
     m_Bits: 384
+  ballRb: {fileID: 327281772}
 --- !u!114 &1820437728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9653,7 +9654,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skinWidth: 0.1
-  isGrounded: 0
+  onGrounded: 0
+  layer1: 0
+  layer2: 0
 --- !u!70 &1820437731
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -9777,7 +9780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1874539141
 Transform:
   m_ObjectHideFlags: 0
@@ -10559,8 +10562,8 @@ Transform:
   m_Children:
   - {fileID: 589211421}
   - {fileID: 481491977}
-  - {fileID: 147779716}
   - {fileID: 896137509}
+  - {fileID: 147779716}
   - {fileID: 669317215}
   - {fileID: 2068296864}
   m_Father: {fileID: 0}

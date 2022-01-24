@@ -9,6 +9,8 @@ public class ScriptSystem : MonoBehaviour
     public static event Action<int> UpdatePhase = delegate { }; // Al CollisionCutscene
     public event Action<int> SelectDialogue = delegate { }; // Al CutsceneManager
 
+    public static event Action<int> UpgradePickaxe = delegate { }; // Al BreakBlockSystem
+
     private bool bag;
     private int phase;
     private int beforePhase;
@@ -33,7 +35,7 @@ public class ScriptSystem : MonoBehaviour
             BagEmpty();
             SavePhase(phase);
             ReturnPhase();
-            //**desbloquear el romper bloques azules**
+            UpgradePickaxe(phase); // desbloquear el romper bloques azules
         }
         else if (phase == 3 && bag) // Segundo pedido realizado
         {
@@ -42,7 +44,7 @@ public class ScriptSystem : MonoBehaviour
             BagEmpty();
             SavePhase(phase);
             ReturnPhase();
-            //**desbloquear el romper bloques metálicos**
+            UpgradePickaxe(phase); // desbloquear el romper bloques metálicos
         }
         else if (phase == 4 && bag) // Tercer y último pedido realizado
         {

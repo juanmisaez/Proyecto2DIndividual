@@ -20,7 +20,8 @@ public class BreakBlockSystem : MonoBehaviour
     RaycastHit2D hit;
 
     bool destroyingBlock = false;
-    public int damagePickaxe;
+    public int damagePickaxe; // Sin uso por el momento
+    int levelPickaxe;
 
     private InputSystemKeyboard _inputSystemKeyboard;
 
@@ -55,7 +56,6 @@ public class BreakBlockSystem : MonoBehaviour
                 //DamageUpdated(damagePickaxe);
                 //---
 
-
                 destroyingBlock = true;
                 StartCoroutine(DestroyBlock(hit.collider.gameObject.GetComponent<Tilemap>(), endpos));
             }
@@ -76,24 +76,28 @@ public class BreakBlockSystem : MonoBehaviour
 
         if(t.name == "Terreno_2") // el marrón
         {
-            map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);            
+            map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
         }
-        if (t.name == "Terreno_4") // el azul
+        if (t.name == "Terreno_4" && levelPickaxe >= 2) // el azul
         {
             map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
         }
-        if (t.name == "Terreno_7") // el metálico
+        if (t.name == "Terreno_7" && levelPickaxe == 3) // el metálico
         {
             map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
         }
-
-
 
         destroyingBlock = false;
     }
     //***********************************************************
 
-    void DamagePickaxe(int damage)
+    void LevelPickaxe(int nv)
+    {
+        // nv == 2 o 3
+        levelPickaxe = nv;
+    }
+
+    void DamagePickaxe(int damage) // Sin uso por el momento
     {
         damagePickaxe = damage;
     }
@@ -101,12 +105,14 @@ public class BreakBlockSystem : MonoBehaviour
     void OnEnable()
     {
         GetComponent<InputSystemKeyboard>().Dig += RaycastDirection;
-        GetComponent<DamageSystem>().UpdateDamage += DamagePickaxe;
+        GetComponent<DamageSystem>().UpdateDamage += DamagePickaxe; // Sin uso por el momento
+        ScriptSystem.UpgradePickaxe += LevelPickaxe;
     }
 
     void OnDisable()
     {
         GetComponent<InputSystemKeyboard>().Dig -= RaycastDirection;
-        GetComponent<DamageSystem>().UpdateDamage -= DamagePickaxe;
+        GetComponent<DamageSystem>().UpdateDamage -= DamagePickaxe; // Sin uso por el momento
+        ScriptSystem.UpgradePickaxe += LevelPickaxe;
     }
 }

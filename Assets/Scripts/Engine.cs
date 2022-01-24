@@ -11,13 +11,19 @@ public class Engine : MonoBehaviour
     [SerializeField]
     private LayerMask obstacle;
 
+    private bool walkableLayer;
+
     private InputSystemKeyboard _inputSystem;
+    public Rigidbody2D ballRb;
+    private Rigidbody2D _playerRb;
+
     //private IsGrounded _isGrounded; // Comprobador de si toca el suelo
 
     void Awake()
     {
         _inputSystem = GetComponent<InputSystemKeyboard>();
         //_isGrounded = GetComponent<IsGrounded>(); // tecnicamente ya no hace falta
+        _playerRb = GetComponent<Rigidbody2D>();
     }
         
     void Start()
@@ -40,13 +46,15 @@ public class Engine : MonoBehaviour
             }
             // -------------------------------------------   
             // ** Provisional para saltar **
-            /*else if (Mathf.Abs(_inputSystem.ver) == 1f && _isGrounded.isGrounded)
+            else if (Mathf.Abs(_inputSystem.ver) == 1f && walkableLayer == true)
             {
                 if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, _inputSystem.ver, 0f), .1f, obstacle)) // Comprobar si coincide con la capa "obstacle"
                 {
-                    movePoint.position += new Vector3(0f, _inputSystem.ver, 0f);
+                    //movePoint.position += new Vector3(0f, _inputSystem.ver + 2, 0f); // + 3 // con el Rigidbody2D.velocity
+                    _playerRb.velocity = new Vector2(_playerRb.velocity.x, 10);
+                    ballRb.velocity = new Vector2(ballRb.velocity.x, 10);
                 }
-            }*/
+            }
             // -------------------------------------------
         }
         //--Flip--//
@@ -61,5 +69,27 @@ public class Engine : MonoBehaviour
             scale.x = -1f;
         }
         transform.localScale = scale;                
+    }
+
+    void OnGround(bool onGrounded, bool onStructure)
+    {
+        if(onGrounded == false && onStructure == false)
+        {
+            walkableLayer = false;
+        }
+        else
+        {
+            walkableLayer = true;
+        }
+    }
+
+    void OnEnable()
+    {
+        GetComponent<IsGrounded>().Ground += OnGround;
+    }
+
+    void OnDisable()
+    {
+        GetComponent<IsGrounded>().Ground -= OnGround;
     }
 }
