@@ -14,7 +14,7 @@ public class DigDecision : FSM.Decision
         bool d = controller.GetDig();
         float x = controller.GetMoveX();
 
-        if (d && x==0)
+        if (d )//&& x==0)
         { 
             dig = true;
         }

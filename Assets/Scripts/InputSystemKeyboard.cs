@@ -22,7 +22,7 @@ public class InputSystemKeyboard : MonoBehaviour
         //{
             hor = Input.GetAxisRaw("Horizontal");
             ver = Input.GetAxisRaw("Vertical");
-            space = Input.GetKeyUp(KeyCode.Space);
+            space = Input.GetKeyDown(KeyCode.Space);
             
             if (Input.GetKeyDown(KeyCode.Escape))
             {
