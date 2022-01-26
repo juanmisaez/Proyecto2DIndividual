@@ -6,13 +6,13 @@ using UnityEngine.EventSystems;
 
 public class PauseMenu : MenuSystem
 {
-    public static bool GameIsPaused = false;
+    public static bool gameIsPaused = false;
 
     public GameObject menuPauseUI;
     
     void Menu()
     {
-        if (GameIsPaused)
+        if (gameIsPaused)
         {
             Resume();
         }
@@ -26,14 +26,14 @@ public class PauseMenu : MenuSystem
     {        
         menuPauseUI.SetActive(false);
         Time.timeScale = 1f;
-        GameIsPaused = false;
+        gameIsPaused = false;
     }
 
     void Pause()
     {
         menuPauseUI.SetActive(true);
         Time.timeScale = 0f;
-        GameIsPaused = true;
+        gameIsPaused = true;
 
         EventSystem.current.SetSelectedGameObject(null); // limpia el objeto seleccionado
         EventSystem.current.SetSelectedGameObject(selectedFirstButton); // selecciona un nuevo objeto
@@ -41,24 +41,15 @@ public class PauseMenu : MenuSystem
 
     public override void LoadMenu()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
-        GameIsPaused = false;
+        menuPauseUI.SetActive(false);
     }
 
-    /*public void QuitGame()
-    {
-        Application.Quit();
-    }*/
-
-    // *********mirar otra forma**********
     void OnEnable()
     {
-        GetComponent<InputSystemKeyboard>().PauseMenu += Menu;
+        InputSystemKeyboard.PauseMenu += Menu;
     }
     void OnDisable()
     {
-        GetComponent<InputSystemKeyboard>().PauseMenu -= Menu;
+        InputSystemKeyboard.PauseMenu -= Menu;
     }
-    // **********************************
 }

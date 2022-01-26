@@ -12,9 +12,8 @@ public class DigDecision : FSM.Decision
     public override bool Decide(Controller controller)
     {
         bool d = controller.GetDig();
-        float x = controller.GetMoveX();
 
-        if (d )//&& x==0)
+        if (d)
         { 
             dig = true;
         }

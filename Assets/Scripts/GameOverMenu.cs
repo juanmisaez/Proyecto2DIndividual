@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using System;
 
 public class GameOverMenu : MenuSystem
 {
-    public static bool GameIsPaused = false;
+    public static event Action<bool> IsPaused = delegate { };
+
+    public static bool gameIsPaused;
 
     public GameObject menuGameOverUI;
     public OxygenSystem _oxygenSystem;
@@ -22,16 +25,16 @@ public class GameOverMenu : MenuSystem
     void Pause()
     {
         menuGameOverUI.SetActive(true);
-        //Time.timeScale = 0f;
-        GameIsPaused = true;
+        gameIsPaused = true;
+        IsPaused(gameIsPaused);
         EventSystem.current.SetSelectedGameObject(null); // limpia el objeto seleccionado
         EventSystem.current.SetSelectedGameObject(selectedFirstButton); // selecciona un nuevo objeto
     }
 
     public void Retry()
     {
-        //Time.timeScale = 1f;
-        GameIsPaused = false;
+        gameIsPaused = false;
+        IsPaused(gameIsPaused);
         SceneManager.LoadScene("Game");
     }
 
