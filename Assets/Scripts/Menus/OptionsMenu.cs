@@ -7,7 +7,7 @@ using System;
 
 public class OptionsMenu : MenuSystem
 {
-    public static event Action<bool> InOptions = delegate { };
+    public static event Action<bool> IsPaused = delegate { }; // Al Inputsystem y al PauseMenu
 
     public static bool gameInOptions = true;
 
@@ -17,7 +17,7 @@ public class OptionsMenu : MenuSystem
     {
         menuOptionsUI.SetActive(true);
         gameInOptions = true;
-        InOptions(gameInOptions);
+        IsPaused(gameInOptions);
 
         EventSystem.current.SetSelectedGameObject(null); // limpia el objeto seleccionado
         EventSystem.current.SetSelectedGameObject(optionsFirstButton); // selecciona un nuevo objeto
@@ -26,6 +26,8 @@ public class OptionsMenu : MenuSystem
     public void CloseMenu()
     {
         menuOptionsUI.SetActive(false);
+        gameInOptions = false;
+        IsPaused(gameInOptions);
 
         EventSystem.current.SetSelectedGameObject(null); // limpia el objeto seleccionado
         EventSystem.current.SetSelectedGameObject(optionsCloseButton); // selecciona un nuevo objeto

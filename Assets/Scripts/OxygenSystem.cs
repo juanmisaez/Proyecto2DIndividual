@@ -5,7 +5,7 @@ using System;
 
 public class OxygenSystem : MonoBehaviour
 {
-    public event Action Death = delegate { };
+    public static event Action Death = delegate { };
     public event Action<int> OxygenUpdated = delegate { };
 
     [SerializeField]

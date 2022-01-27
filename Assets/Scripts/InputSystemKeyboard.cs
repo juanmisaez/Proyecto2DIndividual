@@ -12,9 +12,9 @@ public class InputSystemKeyboard : MonoBehaviour
 
     public event Action Dig = delegate { };
     public event Action Hook = delegate { };
-    public static event Action PauseMenu = delegate { };
+    public static event Action Paused = delegate { }; // Al PauseMenu
 
-    bool pause;
+    bool over;
     bool options;
     bool cutscene;
 
@@ -25,28 +25,30 @@ public class InputSystemKeyboard : MonoBehaviour
             hor = Input.GetAxisRaw("Horizontal");
             ver = Input.GetAxisRaw("Vertical");
             space = Input.GetKeyDown(KeyCode.Space);
-            //escape = Input.GetKeyDown(KeyCode.Escape);
+            escape = Input.GetKeyDown(KeyCode.Escape);
 
             if (space)
             {
                 Dig();
             }
 
-            if (Input.GetKeyDown(KeyCode.Escape) && !pause && !options)
+            if (escape && over == false && options == false)
             {
-                PauseMenu();
+                Paused();
             }
         }
     }
 
-    void Pause(bool _isPause)
+    void Over(bool _isOver)
     {
-        pause = _isPause;
+        over = _isOver;
+        Debug.Log("--muerto actualizada: " + over);
     }
 
     void Options(bool _inOptions)
-    {
+    {        
         options = _inOptions;
+        Debug.Log("--opciones actualizado: " + options);
     }
 
     void Cutscene(bool _inCutscene)
@@ -56,14 +58,16 @@ public class InputSystemKeyboard : MonoBehaviour
 
     void OnEnable()
     {
-        GameOverMenu.IsPaused += Pause;
-        OptionsMenu.InOptions += Options;
+        //PauseMenu.IsPaused += Pause;
+        OptionsMenu.IsPaused += Options;
+        GameOverMenu.IsOver += Over;
         CutsceneManager.InCutscene += Cutscene;
     }
     void OnDisable()
     {
-        GameOverMenu.IsPaused -= Pause;
-        OptionsMenu.InOptions -= Options;
+        //PauseMenu.IsPaused -= Pause;
+        OptionsMenu.IsPaused -= Options;
+        GameOverMenu.IsOver -= Over;
         CutsceneManager.InCutscene -= Cutscene;
     }
 }

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class DestroySystem : MonoBehaviour
 {
+    private void Dead()
+    {
+        gameObject.SetActive(false);
+    }
+
     void OnEnable()
     {
         GetComponent<HealthSystem>().Death += Dead;
@@ -12,10 +17,5 @@ public class DestroySystem : MonoBehaviour
     void OnDisable()
     {
         GetComponent<HealthSystem>().Death += Dead;
-    }
-
-    private void Dead()
-    {
-        gameObject.SetActive(false);
     }
 }
