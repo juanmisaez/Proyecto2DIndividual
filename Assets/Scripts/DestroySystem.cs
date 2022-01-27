@@ -6,6 +6,7 @@ public class DestroySystem : MonoBehaviour
 {
     private void Dead()
     {
+        FindObjectOfType<AudioManager>().Play("Ore");
         gameObject.SetActive(false);
     }
 

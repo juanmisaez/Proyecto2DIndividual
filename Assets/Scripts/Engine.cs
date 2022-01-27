@@ -54,13 +54,14 @@ public class Engine : MonoBehaviour
                 }
             }
             // -------------------------------------------   
-            // ** Provisional para saltar **
+            //--Ascenso (provisional)--
             else if (Mathf.Abs(_inputSystem.ver) == 1f && walkableLayer == true )
             {
                 if (!obstacleVer) // hor
                 {
                     ballRb.gravityScale *= -1;
 
+                    FindObjectOfType<AudioManager>().Play("PlayerRope");
                     /*for(int i = 0; i < 2; i++)
                     {                        
                         movePoint.position += new Vector3(0f, _inputSystem.ver + i, 0f);

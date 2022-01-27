@@ -77,14 +77,17 @@ public class BreakBlockSystem : MonoBehaviour
         if(t.name == "Terreno_2") // el marrón
         {
             map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
+            FindObjectOfType<AudioManager>().Play("DestroyBlock");
         }
         if (t.name == "Terreno_4" && levelPickaxe >= 2) // el azul
         {
             map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
+            FindObjectOfType<AudioManager>().Play("DestroyBlock");
         }
         if (t.name == "Terreno_7" && levelPickaxe == 3) // el metálico
         {
             map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
+            FindObjectOfType<AudioManager>().Play("DestroyBlock");
         }
 
         destroyingBlock = false;
