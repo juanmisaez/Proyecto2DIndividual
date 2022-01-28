@@ -11,17 +11,17 @@ public class FallDecision : FSM.Decision
 
     public override bool Decide(Controller controller)
     {
-        bool y = controller.GetFall();
-        bool d = controller.GetDig();
+        /*bool y = controller.GetFall();
+        //bool d = controller.GetDig();
 
-        if (y && !d) // Está cayendo
+        if (y /*&& !d) // Está cayendo
         {
             fall = true;
         }
         else // Está en el suelo
         {
             fall = false;
-        }        
-        return fall;
+        }    */    
+        return controller.GetFall(); ;
     }
 }

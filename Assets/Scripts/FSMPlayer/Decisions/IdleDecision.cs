@@ -12,11 +12,11 @@ public class IdleDecision : FSM.Decision
     public override bool Decide(Controller controller)
     {        
         float x = controller.GetMoveX();
-        float y = controller.GetMoveY();
-        bool f = controller.GetFall();
-        bool d = controller.GetDig();
+        //float y = controller.GetMoveY();
+        //bool f = controller.GetFall();
+        //bool d = controller.GetDig();
 
-        if (x == 0 && y == 0 && !f && !d)
+        if (x == 0 )//&& y == 0 && !f && !d)
         {
             idle = true;
         }

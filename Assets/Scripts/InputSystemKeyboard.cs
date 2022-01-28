@@ -9,6 +9,7 @@ public class InputSystemKeyboard : MonoBehaviour
     public float ver { get; private set; }
     public bool space { get; private set; }
     public bool escape { get; private set; }
+    public bool w { get; private set; } //---
 
     public event Action Dig = delegate { };
     public event Action Hook = delegate { };
@@ -24,6 +25,7 @@ public class InputSystemKeyboard : MonoBehaviour
         {
             hor = Input.GetAxisRaw("Horizontal");
             ver = Input.GetAxisRaw("Vertical");
+            w = Input.GetKeyDown(KeyCode.W); //---
             space = Input.GetKeyDown(KeyCode.Space);
             escape = Input.GetKeyDown(KeyCode.Escape);
 

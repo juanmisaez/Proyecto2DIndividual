@@ -35,8 +35,8 @@ public class Engine : MonoBehaviour
 
     void Update()
     {
-        bool obstacleHor = Physics2D.OverlapCircle(movePoint.position + new Vector3(_inputSystem.hor, 0f, 0f), .1f, obstacle); // Comprobar si coincide con la capa "obstacle" 
-        bool obstacleVer = Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, _inputSystem.ver, 0f), .1f, obstacle); // Comprobar si coincide con la capa "obstacle" 
+        bool obstacleHor = Physics2D.OverlapCircle(movePoint.position + new Vector3(_inputSystem.hor, 0f, 0f), .1f, obstacle); // Comprobar si coincide con la capa "obstacle" de forma horizontal
+        bool obstacleVer = Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, _inputSystem.ver, 0f), .1f, obstacle); // Comprobar si coincide con la capa "obstacle" de forma vertical
 
         //--Move--//
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);        
@@ -48,18 +48,19 @@ public class Engine : MonoBehaviour
                 {
                     if (Mathf.Sign(ballRb.gravityScale) == -1)
                     {
-                        ballRb.gravityScale *= -1;
+                        ballRb.gravityScale *= -1; // Devuelve la gravedad a la normalidad
                     }
                     movePoint.position += new Vector3(_inputSystem.hor, 0f, 0f);
                 }
             }
             // -------------------------------------------   
-            //--Ascenso (provisional)--
-            else if (Mathf.Abs(_inputSystem.ver) == 1f && walkableLayer == true )
+            //--Up--// (provisional)
+            else if (/*Mathf.Abs(_inputSystem.ver)*/_inputSystem.w == true && walkableLayer == true )
             {
-                if (!obstacleVer) // hor
+                Debug.Log("W");
+                if (!obstacleVer)
                 {
-                    ballRb.gravityScale *= -1;
+                    ballRb.gravityScale *= -1; // Invierte la gravedad
 
                     FindObjectOfType<AudioManager>().Play("PlayerRope");
                     /*for(int i = 0; i < 2; i++)
