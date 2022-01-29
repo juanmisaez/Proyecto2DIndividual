@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.Audio;
 using System;
 
 public class OptionsMenu : MenuSystem
@@ -12,10 +13,12 @@ public class OptionsMenu : MenuSystem
     public static bool gameInOptions = true;
 
     public GameObject menuOptionsUI;
+    public AudioMixer audioMixer; //---
 
     public void OptionMenu()
     {
-        menuOptionsUI.SetActive(true);
+        //menuOptionsUI.SetActive(true);
+        //background.SetActive(true);
         gameInOptions = true;
         IsPaused(gameInOptions);
 
@@ -25,11 +28,17 @@ public class OptionsMenu : MenuSystem
 
     public void CloseMenu()
     {
-        menuOptionsUI.SetActive(false);
+        //menuOptionsUI.SetActive(false);
+        //background.SetActive(false);
         gameInOptions = false;
         IsPaused(gameInOptions);
 
         EventSystem.current.SetSelectedGameObject(null); // limpia el objeto seleccionado
         EventSystem.current.SetSelectedGameObject(optionsCloseButton); // selecciona un nuevo objeto
+    } 
+    
+    public void SetVolume(float vol)
+    {
+        audioMixer.SetFloat("volume", vol); //---
     }
 }

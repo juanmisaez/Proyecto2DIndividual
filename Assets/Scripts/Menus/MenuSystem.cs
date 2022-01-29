@@ -10,6 +10,8 @@ public class MenuSystem : MonoBehaviour
     public GameObject optionsFirstButton;
     public GameObject optionsCloseButton;
 
+    //public GameObject background;
+
     public void PlayGame()
     {
         SceneManager.LoadScene("Game"); // la escena del juego

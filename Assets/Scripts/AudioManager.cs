@@ -7,8 +7,7 @@ using System;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
-
-    // Start is called before the first frame update
+    
     void Awake()
     {
         foreach (Sound s in sounds)
@@ -18,7 +17,6 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
-
         }
     }
 
@@ -30,9 +28,9 @@ public class AudioManager : MonoBehaviour
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        if(s == null)
+        if(s == null) // En caso de no encontrar el nombre
         {
-            Debug.LogWarning("Sonido: " + name + " no encontrado!");
+            Debug.LogWarning("Sonido: " + name + " no encontrado");
             return;
         }
 

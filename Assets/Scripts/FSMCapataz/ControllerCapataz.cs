@@ -2,29 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 namespace FSM
 {
-    public class Controller : MonoBehaviour
+    public class ControllerCapataz : MonoBehaviour
     {
         public State currentState; // apuntador al estado actual
         public State remainState;  // el estado en el que te quedas si no pasas a la siguiente
 
         private Animator _animatorController;
-        private OxygenSystem _oxygenSystem;
-        private InputSystemKeyboard _inputSystemKeyboard;
-        private Rigidbody2D _rigidbody2DPlayerMovePoint;        
-        [SerializeField]
-        private Transform _playerMovePoint;        
 
         public bool ActiveAI { get; set; }
 
         private void Awake()
         {
             _animatorController = GetComponent<Animator>();
-            _oxygenSystem = GetComponent<OxygenSystem>();
-            _inputSystemKeyboard = GetComponent<InputSystemKeyboard>();
-            _rigidbody2DPlayerMovePoint = _playerMovePoint.GetComponent<Rigidbody2D>();
         }
 
         public void Start()
@@ -40,35 +32,10 @@ namespace FSM
                                              // sus métodos
         }
 
-        public int GetCurrentOxygen()
-        {
-            return _oxygenSystem.GetOxygen();
-        }
-
-        public float GetMoveX()
-        {
-            return _inputSystemKeyboard.hor;
-        }
-
-        public float GetMoveY()
-        {
-            return _inputSystemKeyboard.ver;
-        }
-
-        public bool GetFall()
-        {
-            return _rigidbody2DPlayerMovePoint.velocity.y < -0.2f; // Con la 'velocity' del "point" es más preciso que con el 'grounded' del "player"
-        }
-
-        public bool GetDig()
-        {
-            return _inputSystemKeyboard.space;
-        }
-
-        /*public bool GetTalk()
+        public bool GetTalk()
         {
             return ;
-        }*/
+        }
 
         public void SetAnimation(string animation, bool value)
         {
@@ -83,4 +50,4 @@ namespace FSM
             }
         }
     }
-}
+}*/
