@@ -54,6 +54,15 @@ public class OxygenSystem : MonoBehaviour
         if (totalTime > 1)
         {
             oxygen -= damage;
+
+//--Oxigeno infinito--
+#if __DEBUG_AVAILABLE__
+            if(DebugSystem.debugMode && DebugSystem.debugInfiniteOxygen)
+            {
+                oxygen += damage;
+            }
+#endif
+
             if (oxygen <= 0)
             {
                 oxygen = 0;

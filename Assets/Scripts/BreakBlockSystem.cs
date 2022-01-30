@@ -74,7 +74,15 @@ public class BreakBlockSystem : MonoBehaviour
 
         //Debug.Log("nombre " + t.name);
 
-        if(t.name == "Terreno_2") // el marrón
+//--Romper todos los bloques--
+#if __DEBUG_AVAILABLE__
+        if (DebugSystem.debugMode && DebugSystem.debugBreakEverything)
+        {
+            levelPickaxe = 3;
+        }
+#endif
+
+        if (t.name == "Terreno_2") // el marrón
         {
             map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
             FindObjectOfType<AudioManager>().Play("DestroyBlock");
