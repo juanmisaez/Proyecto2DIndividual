@@ -49,7 +49,7 @@ public class Engine : MonoBehaviour
                     movePoint.position += new Vector3(_inputSystem.hor, 0f, 0f);
                 }
             }
-            // -------------------------------------------   
+
             //--Up--// (provisional)
             if (_inputSystem.w == true && walkableLayer == true )
             {                
@@ -67,7 +67,16 @@ public class Engine : MonoBehaviour
                     //ballRb.velocity = new Vector2(ballRb.velocity.x, 10);
                 }
             }
-            // -------------------------------------------
+
+            //--Down--//
+            if (_inputSystem.s == true && roofLayer == true)
+            {
+                if(!obstacleVer)
+                {
+                    ballRb.gravityScale *= -1; // Devuelve la gravedad a la normalidad
+                }
+                
+            }
         }
         //--Flip--//
         Vector3 scale = transform.localScale;
