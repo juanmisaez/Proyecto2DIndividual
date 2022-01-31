@@ -9,7 +9,7 @@ public class InputSystemKeyboard : MonoBehaviour
     public float ver { get; private set; }
     public bool space { get; private set; }
     public bool escape { get; private set; }
-    public bool w { get; private set; } //---
+    public bool w { get; private set; }
 
     public event Action Dig = delegate { };
     public event Action Hook = delegate { };
@@ -44,13 +44,13 @@ public class InputSystemKeyboard : MonoBehaviour
     void Over(bool _isOver)
     {
         over = _isOver;
-        Debug.Log("--muerto actualizada: " + over);
+        //Debug.Log("--muerto actualizada: " + over);
     }
 
     void Options(bool _inOptions)
     {        
         options = _inOptions;
-        Debug.Log("--opciones actualizado: " + options);
+        //Debug.Log("--opciones actualizado: " + options);
     }
 
     void Cutscene(bool _inCutscene)

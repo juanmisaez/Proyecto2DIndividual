@@ -12,10 +12,10 @@ public class LookDownDecision : FSM.Decision
     public override bool Decide(Controller controller)
     {
         float y = controller.GetMoveY();
-        //float x = controller.GetMoveX();
-        //bool d = controller.GetDig();
+        float x = controller.GetMoveX();
+        bool d = controller.GetDig();
 
-        if (y == -1 /*&& x == 0 && !d*/ ) // Mira abajo si no está en movimiento ni está picando
+        if (y == -1 && x == 0 && !d) // Mira abajo si no está en movimiento ni está picando
         {
             lookDown = true;
         }

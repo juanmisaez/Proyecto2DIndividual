@@ -14,17 +14,13 @@ public class Engine : MonoBehaviour
     private bool walkableLayer;
     private bool roofLayer; //---TEST---
 
-
     private InputSystemKeyboard _inputSystem;
     public Rigidbody2D ballRb;
     private Rigidbody2D _playerRb;
 
-    //private IsGrounded _isGrounded; // Comprobador de si toca el suelo
-
     void Awake()
     {
         _inputSystem = GetComponent<InputSystemKeyboard>();
-        //_isGrounded = GetComponent<IsGrounded>(); // tecnicamente ya no hace falta
         _playerRb = GetComponent<Rigidbody2D>();
     }
         
@@ -37,11 +33,11 @@ public class Engine : MonoBehaviour
     {
         bool obstacleHor = Physics2D.OverlapCircle(movePoint.position + new Vector3(_inputSystem.hor, 0f, 0f), .1f, obstacle); // Comprobar si coincide con la capa "obstacle" de forma horizontal
         bool obstacleVer = Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, _inputSystem.ver, 0f), .1f, obstacle); // Comprobar si coincide con la capa "obstacle" de forma vertical
-
-        //--Move--//
+                
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);        
         if (Vector3.Distance(transform.position, movePoint.position) <= 0.5f)
         {
+            //--Move--//
             if (Mathf.Abs(_inputSystem.hor) == 1f && (walkableLayer == true || roofLayer == true))
             {
                 if (!obstacleHor)
@@ -55,9 +51,8 @@ public class Engine : MonoBehaviour
             }
             // -------------------------------------------   
             //--Up--// (provisional)
-            else if (/*Mathf.Abs(_inputSystem.ver)*/_inputSystem.w == true && walkableLayer == true )
-            {
-                Debug.Log("W");
+            if (_inputSystem.w == true && walkableLayer == true )
+            {                
                 if (!obstacleVer)
                 {
                     ballRb.gravityScale *= -1; // Invierte la gravedad

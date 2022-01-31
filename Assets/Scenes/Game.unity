@@ -1427,7 +1427,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 3, y: 1, z: 0}
+  - first: {x: 2, y: 1, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 5
@@ -8211,6 +8211,7 @@ MonoBehaviour:
   nameText: {fileID: 546103498}
   dialogueText: {fileID: 1025086122}
   animator: {fileID: 979373748}
+  nextSentence: {fileID: 1731055104}
 --- !u!4 &388943533
 Transform:
   m_ObjectHideFlags: 0
@@ -25326,10 +25327,8 @@ MonoBehaviour:
   - name: Capataz
     sentences:
     - "\xA1Bien hecho Beak! Has encontrado algunas pepitas de oro, y no son peque\xF1as.\r"
-    - "Veo que tambi\xE9n has encontrado un pico entre los escombros, qu\xE9datelo,
-      te ser\xE1 mucho m\xE1s \xFAtil que ese viejo pico que llevas."
-    - "Seguro que te permite explorar nuevas galer\xEDas sepultadas, anda vuelve
-      a bajar y abre bien los ojos."
+    - "Toma, mejor tira tu viejo pico oxidado y usa este. Seguro que te permite explorar
+      nuevas galer\xEDas sepultadas, anda vuelve a bajar y abre bien los ojos.\r"
   - name: Capataz
     sentences:
     - "SEGUNDO PEDIDO COMPLETADO\nSOLO TE QUEDA UNA MISI\xD3N M\xC1S"
@@ -25811,7 +25810,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 2, y: 1, z: 0}
+  - first: {x: 3, y: 1, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 2
@@ -43425,14 +43424,15 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1913919530}
   m_Father: {fileID: 979373745}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.88900006, y: 0.052397117}
-  m_AnchorMax: {x: 0.95967793, y: 0.17567313}
-  m_AnchoredPosition: {x: -0.000091552734, y: -1.5}
-  m_SizeDelta: {x: 0.000030518, y: 3}
+  m_AnchorMin: {x: 0.795, y: 0.043}
+  m_AnchorMax: {x: 0.97066116, y: 0.178}
+  m_AnchoredPosition: {x: 0.041015625, y: 0.000030517578}
+  m_SizeDelta: {x: 0.025901794, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1731055106
 MonoBehaviour:
@@ -43503,7 +43503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -44060,7 +44060,7 @@ AudioSource:
   m_GameObject: {fileID: 1820437720}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 44cfb254216f6154486bf9277304f1a5, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -44175,9 +44175,9 @@ MonoBehaviour:
   mediumPather: {fileID: 1676455923}
   internalPather: {fileID: 977408541}
   explosion: 0
-  externalFadeSpeed: 0.002
-  mediumFadeSpeed: 0.00192
-  internalFadeSpeed: 0.00184
+  externalFadeSpeed: 0.01
+  mediumFadeSpeed: 0.012
+  internalFadeSpeed: 0.014
 --- !u!1 &1824501561
 GameObject:
   m_ObjectHideFlags: 0
@@ -44714,6 +44714,101 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18275ede229057e4eb2d7ed937129d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1913919529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1913919530}
+  - component: {fileID: 1913919533}
+  - component: {fileID: 1913919532}
+  - component: {fileID: 1913919531}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1913919530
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913919529}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1731055105}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.00008392334, y: -0.0000076293945}
+  m_SizeDelta: {x: -0.0001, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1913919531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913919529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
+--- !u!114 &1913919532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913919529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: cd4c8911b0923cf45a20478e2c8188f6, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Siguiente
+--- !u!222 &1913919533
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913919529}
+  m_CullTransparentMesh: 1
 --- !u!1 &1920861189
 GameObject:
   m_ObjectHideFlags: 0

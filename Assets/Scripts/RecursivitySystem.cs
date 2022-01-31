@@ -26,14 +26,14 @@ public class RecursivitySystem : MonoBehaviour
 
     public bool explosion;
 
-    [Range(0.0001f, 0.002f)] // slider
-    public float externalFadeSpeed = 0.0004f;
+    [Range(0.01f, 0.02f)] // slider
+    public float externalFadeSpeed = 0.014f;
 
-    [Range(0.0001f, 0.002f)] // slider
-    public float mediumFadeSpeed = 0.0005f;
+    [Range(0.01f, 0.02f)] // slider
+    public float mediumFadeSpeed = 0.015f;
 
-    [Range(0.0001f, 0.002f)] // slider
-    public float internalFadeSpeed = 0.0007f;
+    [Range(0.01f, 0.02f)] // slider
+    public float internalFadeSpeed = 0.017f;
 
 
     void ExternalGenerator(Vector3 pos, float X, float Y)

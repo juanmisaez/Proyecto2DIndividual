@@ -18,7 +18,6 @@ public class TitleScreenMenu : MenuSystem
     {
         if (Input.anyKey && gameInTitleScreen)
         {
-            Debug.Log("AnyKey");
             NextScreen();
         }
     }

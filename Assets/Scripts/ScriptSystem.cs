@@ -19,18 +19,18 @@ public class ScriptSystem : MonoBehaviour
     {
         if(phase == 0) // Intro
         {
-            Debug.Log("FASE 0, intro");
+            //Debug.Log("FASE 0, intro");
             SelectDialogue(phase);
             NextPhase();
         }
         else if(!bag) // Mochila no llena del todo
         {
-            Debug.Log("FASE 1, mochila vacía");
+            //Debug.Log("FASE 1, mochila vacía");
             SelectDialogue(phase);
         }
         else if(phase == 2 && bag) // Primer pedido realizado
         {
-            Debug.Log("FASE 2, primer pedido completo");
+            //Debug.Log("FASE 2, primer pedido completo");
             SelectDialogue(phase);
             BagEmpty();
             SavePhase(phase);
@@ -39,7 +39,7 @@ public class ScriptSystem : MonoBehaviour
         }
         else if (phase == 3 && bag) // Segundo pedido realizado
         {
-            Debug.Log("FASE 3, segundo pedido completo");
+            //Debug.Log("FASE 3, segundo pedido completo");
             SelectDialogue(phase);
             BagEmpty();
             SavePhase(phase);
@@ -48,7 +48,7 @@ public class ScriptSystem : MonoBehaviour
         }
         else if (phase == 4 && bag) // Tercer y último pedido realizado
         {
-            Debug.Log("FASE 4, tercer pedido completo");
+            //Debug.Log("FASE 4, tercer pedido completo");
             SelectDialogue(phase);
             BagEmpty();
         }

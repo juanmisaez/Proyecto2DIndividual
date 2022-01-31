@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class DialogueManager : MonoBehaviour
 {
     public Text nameText;
     public Text dialogueText;
     public Animator animator;
+
+    public GameObject nextSentence;
 
     private Queue<string> sentences;
 
@@ -26,8 +29,11 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(frase);
         }
-        
-        DisplayNextSentence();
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(nextSentence); // Selecciona el botón para pasar al siguiente diálogo
+
+        DisplayNextSentence(); // avanza al primer cuadro de diálogo, eliminando la plantilla del canvas
     }
 
     public void DisplayNextSentence()
@@ -46,7 +52,5 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
         FindObjectOfType<CutsceneManager>()?.StopCutscene();
-        //FindObjectOfType<CollisionCapataz>()?.StopCutscene(); //--No hará falta
-        //FindObjectOfType<CollisionCapatazProgression>()?.StopCutscene(); //--No hará falta
     }
 }
