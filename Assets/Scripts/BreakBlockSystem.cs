@@ -45,9 +45,9 @@ public class BreakBlockSystem : MonoBehaviour
         
         Vector2 endpos = raycastPoint.position + direction;
 
-        Debug.DrawLine(raycastPoint.position, endpos, Color.red); 
-
-        if(_inputSystemKeyboard.space)
+        //Debug.DrawLine(raycastPoint.position, endpos, Color.red);
+                
+        if (_inputSystemKeyboard.space)
         {
             if(hit.collider && !destroyingBlock)
             {
@@ -82,17 +82,17 @@ public class BreakBlockSystem : MonoBehaviour
         }
 #endif
 
-        if (t.name == "Terreno_2") // el marrón
+        if (t.name == "Terreno_4") // el marrón
         {
             map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
             FindObjectOfType<AudioManager>().Play("DestroyBlock");
         }
-        if (t.name == "Terreno_4" && levelPickaxe >= 2) // el azul
+        if (t.name == "Terreno_5" && levelPickaxe >= 2) // el azul
         {
             map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
             FindObjectOfType<AudioManager>().Play("DestroyBlock");
         }
-        if (t.name == "Terreno_7" && levelPickaxe == 3) // el metálico
+        if (t.name == "Terreno_6" && levelPickaxe == 3) // el metálico
         {
             map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
             FindObjectOfType<AudioManager>().Play("DestroyBlock");

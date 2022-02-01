@@ -13,7 +13,7 @@ public class InputSystemKeyboard : MonoBehaviour
     public bool s { get; private set; }
 
     public event Action Dig = delegate { };
-    public event Action Hook = delegate { };
+    public event Action Rope = delegate { };
     public static event Action Paused = delegate { }; // Al PauseMenu
 
     bool over;
@@ -30,6 +30,11 @@ public class InputSystemKeyboard : MonoBehaviour
             s = Input.GetKeyDown(KeyCode.S); //---
             space = Input.GetKeyDown(KeyCode.Space);
             escape = Input.GetKeyDown(KeyCode.Escape);
+
+            if(w)
+            {
+                Rope();
+            }
 
             if (space)
             {
