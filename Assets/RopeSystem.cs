@@ -21,6 +21,8 @@ public class RopeSystem : MonoBehaviour
 
     bool solidBlock = false;
 
+    int ropeLenght = 4; //---
+
     private InputSystemKeyboard _inputSystemKeyboard;
 
     private void Awake()
@@ -30,7 +32,7 @@ public class RopeSystem : MonoBehaviour
 
     private void Update()
     {
-        if (_inputSystemKeyboard.hor != 0 || _inputSystemKeyboard.ver == -1)
+        if (_inputSystemKeyboard.hor == 0 && _inputSystemKeyboard.ver == 1)
         {
             direction.x = _inputSystemKeyboard.hor;
             direction.y = _inputSystemKeyboard.ver;
@@ -39,7 +41,8 @@ public class RopeSystem : MonoBehaviour
 
     void RaycastDirection()
     {
-        Vector2 rope = raycastPoint.position + direction * 2;   // distancia de 3 tiles, valor a modificar para aumentar la cuerda
+        Vector2 rope = raycastPoint.position + direction;// * 2;   // distancia de 3 tiles, valor a modificar para aumentar la cuerda
+        
         Vector2 hook;
         hook.x = rope.x + direction.x;
         hook.y = rope.y + direction.y;
@@ -47,24 +50,23 @@ public class RopeSystem : MonoBehaviour
         ropeRaycast = Physics2D.Raycast(raycastPoint.position, direction, casDistance, layerForRope.value);
         hookRaycast = Physics2D.Raycast(hook, direction, casDistance, layerForHook.value);
 
-        Debug.DrawLine(raycastPoint.position, rope, Color.green); // la cuerda
-        Debug.DrawLine(rope, hook, Color.cyan);                   // gancho        
-
-        int ropeLenght = 1; //---
+        Debug.DrawLine(raycastPoint.position, rope, Color.cyan); // la cuerda
+        Debug.DrawLine(rope, hook, Color.red);                   // gancho        
 
         //Debug.DrawLine(raycastPoint.position, endpos, Color.red);
 
-        if (_inputSystemKeyboard.space)
+        if (_inputSystemKeyboard.w)
         {
             if (ropeRaycast.collider && !solidBlock)
-            {
+            {                
                 solidBlock = true;
-                StartCoroutine(DestroyBlock(ropeRaycast.collider.gameObject.GetComponent<Tilemap>(), rope, ropeLenght));
+                //StartCoroutine(DestroyBlock(ropeRaycast.collider.gameObject.GetComponent<Tilemap>(), rope, ropeLenght));
+                CheckBlock(ropeRaycast.collider.gameObject.GetComponent<Tilemap>(), rope, ropeLenght);
             }
         }
     }
 
-    IEnumerator DestroyBlock(Tilemap map, Vector2 pos, int _ropeLenght) // añadir variable int: longitud de la cuerda
+    /*IEnumerator DestroyBlock(Tilemap map, Vector2 pos, int _ropeLenght) // añadir variable int: longitud de la cuerda
     {
         yield return new WaitForSeconds(timerTest);
 
@@ -72,23 +74,71 @@ public class RopeSystem : MonoBehaviour
         pos.x = Mathf.Floor(pos.x);
 
         TileBase tile = map.GetTile(new Vector3Int((int)pos.x, (int)pos.y, 0));
-      
-        for(int t = 1; t < _ropeLenght; t++)
+        
+        for (int t = 1; t <= _ropeLenght; t++)
         {
             Vector2 rope = raycastPoint.position + direction * t;
 
             if (tile.name == "Terreno_0") // fondo
             {
                 Debug.Log("¡Todo despejado!");
-                // dar permiso para ejecutar la siguiente corrutina
+                // que mire el de arriba si no supera la longitud
             }
+            if (tile.name == "Terreno_1" || tile.name == "Terreno_4" || tile.name == "Terreno_5" || tile.name == "Terreno_6") // estructura // el marrón // el azul // el metálico
+            {
+                Debug.Log("¡Engancha'o!");
+                // evento al Engine.cs para que suba
+                // salir
+            }
+
+            else
+            {
+                Debug.Log("Rozo el techo con la cabeza");
+            }
+
         }
         
 
-        if (tile.name == "Terreno_1" || tile.name == "Terreno_4" || tile.name == "Terreno_5" || tile.name == "Terreno_6") // estructura // el marrón // el azul // el metálico
+        
+
+        solidBlock = false;
+    }*/
+
+    void CheckBlock(Tilemap map, Vector2 _rope, int _ropeLenght) // añadir variable int: longitud de la cuerda
+    {
+        _rope.x = Mathf.Floor(_rope.x);
+        _rope.y = Mathf.Floor(_rope.y);
+
+        Vector2 hook;
+        hook.x = Mathf.Floor(_rope.x + direction.x);
+        hook.y = Mathf.Floor(_rope.y + direction.y);
+
+        
+
+        for (int t = 1; t < _ropeLenght; t++)
         {
-            Debug.Log("¡Enganchao'!");
-            // evento al Engine.cs para que suba 
+            hook = raycastPoint.position + direction * t;
+
+            TileBase tile = map.GetTile(new Vector3Int((int)hook.x, (int)hook.y, 0));
+
+            //Debug.DrawLine(raycastPoint.position, hook, Color.cyan); // la cuerda  
+
+            if (tile.name == "Terreno_0") // fondo
+            {
+                Debug.Log("¡Todo despejado!");
+                // que mire el de arriba si no supera la longitud
+            }
+            else if (tile.name == "Terreno_1" || tile.name == "Terreno_4" || tile.name == "Terreno_5" || tile.name == "Terreno_6") // estructura // el marrón // el azul // el metálico
+            {
+                Debug.Log("¡Engancha'o!");
+                // evento al Engine.cs para que suba
+                // salir
+            }
+            else
+            {
+                Debug.Log("Rozo el techo con la cabeza");
+            }
+
         }
 
         solidBlock = false;

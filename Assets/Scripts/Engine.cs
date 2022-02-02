@@ -44,11 +44,32 @@ public class Engine : MonoBehaviour
                 {
                     if (Mathf.Sign(ballRb.gravityScale) == -1)
                     {
+                        //ballRb.gravityScale = 1;
                         ballRb.gravityScale *= -1; // Devuelve la gravedad a la normalidad
                     }
                     movePoint.position += new Vector3(_inputSystem.hor, 0f, 0f);
                 }
             }
+
+            //--Up2--// (provisional)
+            //if (Mathf.Abs(_inputSystem.ver) == 1f && (walkableLayer == true || roofLayer == false))
+            //{
+            //    if (!obstacleVer)
+            //    {
+            //        ballRb.gravityScale = 0; // Invierte la gravedad
+
+            //        movePoint.position += new Vector3(0f, _inputSystem.ver, 0f);
+
+            //        FindObjectOfType<AudioManager>().Play("PlayerRope");
+            //        /*for(int i = 0; i < 2; i++)
+            //        {                        
+            //            movePoint.position += new Vector3(0f, _inputSystem.ver + i, 0f);
+            //        }*/
+
+            //        //_playerRb.velocity = new Vector2(_playerRb.velocity.x, 10);
+            //        //ballRb.velocity = new Vector2(ballRb.velocity.x, 10);
+            //    }
+            //}
 
             //--Up--// (provisional)
             if (_inputSystem.w == true && walkableLayer == true )
@@ -57,7 +78,7 @@ public class Engine : MonoBehaviour
                 {
                     ballRb.gravityScale *= -1; // Invierte la gravedad
 
-                    FindObjectOfType<AudioManager>().Play("PlayerRope");
+                   FindObjectOfType<AudioManager>().Play("PlayerRope");
                     /*for(int i = 0; i < 2; i++)
                     {                        
                         movePoint.position += new Vector3(0f, _inputSystem.ver + i, 0f);
@@ -67,6 +88,7 @@ public class Engine : MonoBehaviour
                     //ballRb.velocity = new Vector2(ballRb.velocity.x, 10);
                 }
             }
+
 
             //--Down--//
             if (_inputSystem.s == true && roofLayer == true)

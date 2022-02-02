@@ -20,9 +20,9 @@ public class RecursivitySystem : MonoBehaviour
     public GameObject MediumPrefab;
     public GameObject InternalPrefab;
 
-    public Transform externalPather;
-    public Transform mediumPather;
-    public Transform internalPather;
+    public Transform externalFather;
+    public Transform mediumFather;
+    public Transform internalFather;
 
     public bool explosion;
 
@@ -43,13 +43,13 @@ public class RecursivitySystem : MonoBehaviour
         if (Y < ExternalRange)
         {
             GameObject a = (GameObject)GameObject.Instantiate(ExternalPrefab, pExternal, Quaternion.identity);
-            a.transform.SetParent(externalPather);
+            a.transform.SetParent(externalFather);
             a.transform.localScale = new Vector3(X, Y, 1);
         }
         else
         {
             GameObject a = (GameObject)GameObject.Instantiate(ExternalPrefab, pExternal, Quaternion.identity);
-            a.transform.SetParent(externalPather);
+            a.transform.SetParent(externalFather);
             a.transform.localScale = new Vector3(X, Y, 1);
 
             float x = UnityEngine.Random.Range(-X / 2, X / 2) * ExternalRange;
@@ -67,13 +67,13 @@ public class RecursivitySystem : MonoBehaviour
         if (Y < MediumRange)
         {
             GameObject a = (GameObject)GameObject.Instantiate(MediumPrefab, pMedium, Quaternion.identity);
-            a.transform.SetParent(mediumPather);
+            a.transform.SetParent(mediumFather);
             a.transform.localScale = new Vector3(X, Y, 1);
         }
         else
         {
             GameObject a = (GameObject)GameObject.Instantiate(MediumPrefab, pMedium, Quaternion.identity);
-            a.transform.SetParent(mediumPather);
+            a.transform.SetParent(mediumFather);
             a.transform.localScale = new Vector3(X, Y, 1);
 
             float x = UnityEngine.Random.Range(-X / 2, X / 2) * MediumRange;
@@ -103,13 +103,13 @@ public class RecursivitySystem : MonoBehaviour
         if (Y < InternalRange)
         {
             GameObject a = (GameObject)GameObject.Instantiate(InternalPrefab, pInternal, Quaternion.identity);
-            a.transform.SetParent(internalPather);
+            a.transform.SetParent(internalFather);
             a.transform.localScale = new Vector3(X, Y, 1);
         }
         else
         {
             GameObject a = (GameObject)GameObject.Instantiate(InternalPrefab, pInternal, Quaternion.identity);
-            a.transform.SetParent(internalPather);
+            a.transform.SetParent(internalFather);
             a.transform.localScale = new Vector3(X, Y, 1);
 
             float x = UnityEngine.Random.Range(-X / 2, X / 2) * InternalRange;
@@ -150,15 +150,15 @@ public class RecursivitySystem : MonoBehaviour
 
     IEnumerator ExternalFade()
     {
-        for (int i = 0; i < externalPather.childCount; i++)
+        for (int i = 0; i < externalFather.childCount; i++)
         {
-            MeshRenderer childMesh = externalPather.GetChild(i).GetComponent<MeshRenderer>();
+            MeshRenderer childMesh = externalFather.GetChild(i).GetComponent<MeshRenderer>();
 
             childMesh.material.color -= new Color(0, 0, 0, externalFadeSpeed);
 
             if (childMesh.material.color.a <= 0)
             {
-                Destroy(externalPather.GetChild(i).gameObject);
+                Destroy(externalFather.GetChild(i).gameObject);
             }
         }
         yield return null;
@@ -166,15 +166,15 @@ public class RecursivitySystem : MonoBehaviour
 
     IEnumerator MediumFade()
     {
-        for (int i = 0; i < mediumPather.childCount; i++)
+        for (int i = 0; i < mediumFather.childCount; i++)
         {
-            MeshRenderer childMesh = mediumPather.GetChild(i).GetComponent<MeshRenderer>();
+            MeshRenderer childMesh = mediumFather.GetChild(i).GetComponent<MeshRenderer>();
 
             childMesh.material.color -= new Color(0, 0, 0, mediumFadeSpeed);
 
             if (childMesh.material.color.a <= 0)
             {
-                Destroy(mediumPather.GetChild(i).gameObject);
+                Destroy(mediumFather.GetChild(i).gameObject);
             }
         }
         yield return null;
@@ -182,15 +182,15 @@ public class RecursivitySystem : MonoBehaviour
 
     IEnumerator InternalFade()
     {
-        for (int i = 0; i < internalPather.childCount; i++)
+        for (int i = 0; i < internalFather.childCount; i++)
         {
-            MeshRenderer childMesh = internalPather.GetChild(i).GetComponent<MeshRenderer>();
+            MeshRenderer childMesh = internalFather.GetChild(i).GetComponent<MeshRenderer>();
 
             childMesh.material.color -= new Color(0, 0, 0, internalFadeSpeed);
 
             if (childMesh.material.color.a <= 0)
             {
-                Destroy(internalPather.GetChild(i).gameObject);
+                Destroy(internalFather.GetChild(i).gameObject);
             }
         }
         yield return null;
