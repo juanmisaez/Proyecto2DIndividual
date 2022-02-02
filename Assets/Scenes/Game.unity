@@ -2594,7 +2594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 327773579}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.47, y: -2.49, z: 0}
+  m_LocalPosition: {x: -1.488, y: -2.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 650216092}
@@ -11200,7 +11200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703252296}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.53, y: -1.51, z: 0}
+  m_LocalPosition: {x: -0.492, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 650216092}
@@ -21136,7 +21136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &745805341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21460,7 +21460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852516889}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.56, y: -1.5, z: 0}
+  m_LocalPosition: {x: 0.52, y: -3.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 650216092}
@@ -26497,7 +26497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &896137509
 Transform:
   m_ObjectHideFlags: 0
@@ -45176,13 +45176,13 @@ MonoBehaviour:
   ExternalPrefab: {fileID: 6539112149966580460, guid: ba81826011045044389a7cb175a171ce, type: 3}
   MediumPrefab: {fileID: 6742726525902443380, guid: ebbb2cc01468b1844a1bc652c0aa4362, type: 3}
   InternalPrefab: {fileID: 9197771063203629080, guid: a5d4ad5dfb1f36848a3244e788ecdf4a, type: 3}
-  externalPather: {fileID: 797985705}
-  mediumPather: {fileID: 1676455923}
-  internalPather: {fileID: 977408541}
+  externalFather: {fileID: 797985705}
+  mediumFather: {fileID: 1676455923}
+  internalFather: {fileID: 977408541}
   explosion: 0
-  externalFadeSpeed: 0.01
-  mediumFadeSpeed: 0.012
-  internalFadeSpeed: 0.014
+  externalFadeSpeed: 0.01838
+  mediumFadeSpeed: 0.01727
+  internalFadeSpeed: 0.01616
 --- !u!114 &1820437740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45190,7 +45190,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820437720}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a9b8e482136468479e2126ccf42c7c5, type: 3}
   m_Name: 
