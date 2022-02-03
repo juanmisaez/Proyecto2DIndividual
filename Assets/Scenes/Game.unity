@@ -21457,7 +21457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &745805341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26818,7 +26818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &896137509
 Transform:
   m_ObjectHideFlags: 0
@@ -46402,6 +46402,10 @@ GameObject:
   - component: {fileID: 1895161785}
   - component: {fileID: 1895161787}
   - component: {fileID: 1895161788}
+  - component: {fileID: 1895161792}
+  - component: {fileID: 1895161791}
+  - component: {fileID: 1895161790}
+  - component: {fileID: 1895161789}
   m_Layer: 0
   m_Name: Capataz
   m_TagString: Untagged
@@ -46504,10 +46508,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.40916204, y: -0.10001731}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -46518,8 +46522,96 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.92, y: 1.08}
+  m_Size: {x: 1.7383242, y: 0.8799653}
   m_EdgeRadius: 0
+--- !u!114 &1895161789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895161784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceca7c2f6d87df844bc707a95d80ad6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCutsceneOn: 0
+  camAnim: {fileID: 1263226375}
+  _dialogueTrigger: {fileID: 896137512}
+--- !u!114 &1895161790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895161784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763c883d1e133ac44961dd902f01d21c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1895161791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895161784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071fce4bc18390e449e086267b038287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - name: Capataz
+    sentences:
+    - "\xA1Hola Beak!\nMe alegro que te dejes caer por aqu\xED.\r"
+    - "La vieja mina se ha derrumbado y nos vendr\xEDa bien tu ayuda. \xBFQu\xE9
+      me dices? \xBFNos echas una mano?\r"
+    - "\xA1Estupendo! Sab\xEDa que pod\xEDamos contar contigo.\r Un momento... Recuerdas
+      c\xF3mo trabajar en la vieja mina \xBFcierto?\r\n"
+    - "Recuerda que con A y D puedes moverte y si miras en una direcci\xF3n, incluyendo
+      hacia abajo con S y pulsas ESPACIO podr\xE1s \n"
+    - "golpear con tu pico.\r\nrecuerda tambi\xE9n que con W podr\xE1s trepar con
+      tu cuerda as\xED que..."
+    - "\xA1No te olvides de sacar la cabeza de vez en cuando para respirar!"
+  - name: Capataz
+    sentences:
+    - "Anda no te hagas el remol\xF3n y vuelve ah\xED abajo, seguro que a\xFAn queda
+      algo interesante por encontrar.\r"
+  - name: Capataz
+    sentences:
+    - "\xA1Bien hecho Beak! Has encontrado algunas menas de oro. Desde luego esto
+      es lo tuyo."
+    - Toma, mejor tira tu viejo pico oxidado y usa este.
+    - "Seguro que te permite explorar nuevas galer\xEDas sepultadas, anda vuelve
+      a bajar y abre bien los ojos."
+  - name: Capataz
+    sentences:
+    - "\xA1Sab\xEDa que eras el minero indicado para este trabajo!\r"
+    - "\xBFC\xF3mo dices? \xBFRestos met\xE1licos? No digas nada m\xE1s."
+    - "Toma mi zapapico, seguro que sabr\xE1s c\xF3mo darle uso."
+  - name: Capataz
+    sentences:
+    - "Creo que esas eran las \xFAltimas menas de la vieja mina, \xA1muchas gracias
+      por ayudarnos Beak!"
+    - "Aqu\xED ya no queda mucho m\xE1s por hacer, aunque seguro que habr\xE1 alguien
+      de la compa\xF1\xEDa a quien le vendr\xEDa bien tu ayuda.\r"
+    - "Pero primero te vendr\xEDa bien descansar, te lo has ganado.\r"
+--- !u!114 &1895161792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895161784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a9b7763c661a542a5e1e92e42528be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phase: 0
 --- !u!1 &1913919529
 GameObject:
   m_ObjectHideFlags: 0
