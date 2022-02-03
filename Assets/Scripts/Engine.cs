@@ -44,7 +44,6 @@ public class Engine : MonoBehaviour
                 {
                     if (Mathf.Sign(ballRb.gravityScale) == -1)
                     {
-                        //ballRb.gravityScale = 1;
                         ballRb.gravityScale *= -1; // Devuelve la gravedad a la normalidad
                     }
                     movePoint.position += new Vector3(_inputSystem.hor, 0f, 0f);

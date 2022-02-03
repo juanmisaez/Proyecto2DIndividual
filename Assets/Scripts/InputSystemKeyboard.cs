@@ -51,13 +51,16 @@ public class InputSystemKeyboard : MonoBehaviour
     void Over(bool _isOver)
     {
         over = _isOver;
-        //Debug.Log("--muerto actualizada: " + over);
     }
 
     void Options(bool _inOptions)
     {        
         options = _inOptions;
-        //Debug.Log("--opciones actualizado: " + options);
+    }
+
+    void Win(bool _isOver)
+    {
+        over = _isOver;
     }
 
     void Cutscene(bool _inCutscene)
@@ -67,16 +70,16 @@ public class InputSystemKeyboard : MonoBehaviour
 
     void OnEnable()
     {
-        //PauseMenu.IsPaused += Pause;
         OptionsMenu.IsPaused += Options;
         GameOverMenu.IsOver += Over;
+        WinMenu.IsPaused += Win;
         CutsceneManager.InCutscene += Cutscene;
     }
     void OnDisable()
     {
-        //PauseMenu.IsPaused -= Pause;
         OptionsMenu.IsPaused -= Options;
         GameOverMenu.IsOver -= Over;
+        WinMenu.IsPaused -= Win;
         CutsceneManager.InCutscene -= Cutscene;
     }
 }

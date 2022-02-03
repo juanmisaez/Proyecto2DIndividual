@@ -7,6 +7,7 @@ using System;
 public class BreakBlockSystem : MonoBehaviour
 {
     //public event Action<int> DamageUpdated = delegate { };
+    public event Action<bool, Vector3> CrashRock = delegate { };
 
     public Tilemap[] groundTileMap;
 
@@ -15,6 +16,7 @@ public class BreakBlockSystem : MonoBehaviour
     public LayerMask layer;
 
     public float blockDestroyTime = 1f;
+    bool breakRock;
 
     Vector3 direction;
     RaycastHit2D hit;
@@ -72,9 +74,8 @@ public class BreakBlockSystem : MonoBehaviour
         
         TileBase t = map.GetTile(new Vector3Int((int)pos.x, (int)pos.y,0));
 
-        //Debug.Log("nombre " + t.name);
 
-//--Romper todos los bloques--
+        //--Romper todos los bloques--
 #if __DEBUG_AVAILABLE__
         if (DebugSystem.debugMode && DebugSystem.debugBreakEverything)
         {
@@ -85,19 +86,26 @@ public class BreakBlockSystem : MonoBehaviour
         if (t.name == "Terreno_4") // el marrón
         {
             map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
+            breakRock = true;
+            CrashRock(breakRock, new Vector3Int((int)pos.x, (int)pos.y, 0));
             FindObjectOfType<AudioManager>().Play("DestroyBlock");
         }
         if (t.name == "Terreno_5" && levelPickaxe >= 2) // el azul
         {
             map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
+            breakRock = true;
+            CrashRock(breakRock, new Vector3Int((int)pos.x, (int)pos.y, 0));
             FindObjectOfType<AudioManager>().Play("DestroyBlock");
         }
         if (t.name == "Terreno_6" && levelPickaxe == 3) // el metálico
         {
             map.SetTile(new Vector3Int((int)pos.x, (int)pos.y, 0), null);
+            breakRock = true;
+            CrashRock(breakRock, new Vector3Int((int)pos.x, (int)pos.y, 0));
             FindObjectOfType<AudioManager>().Play("DestroyBlock");
         }
 
+        breakRock = false;
         destroyingBlock = false;
     }
     //***********************************************************

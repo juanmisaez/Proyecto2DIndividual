@@ -17,8 +17,6 @@ public class OptionsMenu : MenuSystem
 
     public void OptionMenu()
     {
-        //menuOptionsUI.SetActive(true);
-        //background.SetActive(true);
         gameInOptions = true;
         IsPaused(gameInOptions);
 
@@ -28,8 +26,6 @@ public class OptionsMenu : MenuSystem
 
     public void CloseMenu()
     {
-        //menuOptionsUI.SetActive(false);
-        //background.SetActive(false);
         gameInOptions = false;
         IsPaused(gameInOptions);
 

@@ -21,7 +21,7 @@ public class RopeSystem : MonoBehaviour
 
     bool solidBlock = false;
 
-    int ropeLenght = 4; //---
+    int ropeLenght = 3; //---
 
     private InputSystemKeyboard _inputSystemKeyboard;
 
@@ -41,19 +41,19 @@ public class RopeSystem : MonoBehaviour
 
     void RaycastDirection()
     {
+        ropeRaycast = Physics2D.Raycast(raycastPoint.position, direction, casDistance, layerForRope.value);
+
         Vector2 rope = raycastPoint.position + direction;// * 2;   // distancia de 3 tiles, valor a modificar para aumentar la cuerda
         
-        Vector2 hook;
-        hook.x = rope.x + direction.x;
-        hook.y = rope.y + direction.y;
+        //Vector2 hook;
+        //hook.x = rope.x + direction.x;
+        //hook.y = rope.y + direction.y;
 
-        ropeRaycast = Physics2D.Raycast(raycastPoint.position, direction, casDistance, layerForRope.value);
-        hookRaycast = Physics2D.Raycast(hook, direction, casDistance, layerForHook.value);
+        
+        //hookRaycast = Physics2D.Raycast(hook, direction, casDistance, layerForHook.value);
 
         Debug.DrawLine(raycastPoint.position, rope, Color.cyan); // la cuerda
-        Debug.DrawLine(rope, hook, Color.red);                   // gancho        
-
-        //Debug.DrawLine(raycastPoint.position, endpos, Color.red);
+        //Debug.DrawLine(rope, hook, Color.red);                   // gancho        
 
         if (_inputSystemKeyboard.w)
         {
@@ -61,9 +61,64 @@ public class RopeSystem : MonoBehaviour
             {                
                 solidBlock = true;
                 //StartCoroutine(DestroyBlock(ropeRaycast.collider.gameObject.GetComponent<Tilemap>(), rope, ropeLenght));
-                CheckBlock(ropeRaycast.collider.gameObject.GetComponent<Tilemap>(), rope, ropeLenght);
+                CheckBlock(ropeRaycast.collider.gameObject.GetComponent<Tilemap>(), rope);//, ropeLenght + 1);
             }
         }
+    }
+
+    void CheckBlock(Tilemap map, Vector2 _rope)//, int _ropeLenght) // Comprueba que tipo de bloque es
+    {
+        _rope.x = Mathf.Floor(_rope.x);
+        _rope.y = Mathf.Floor(_rope.y);
+
+
+        Vector2 hook;
+        hook.x = Mathf.Floor(_rope.x + direction.x);
+        hook.y = Mathf.Floor(_rope.y + direction.y);
+
+
+
+        //for (int t = 1; t < _ropeLenght; t++)
+        //{
+        hook = raycastPoint.position + direction;// * _ropeLenght;
+
+            //TileBase tile = map.GetTile(new Vector3Int((int)hook.x, (int)hook.y, 0));
+            TileBase tile = map.GetTile(new Vector3Int((int)hook.x, (int)hook.y, 0));
+
+            //Debug.DrawLine(raycastPoint.position, hook, Color.cyan); // la cuerda  
+
+            if (tile.name == "Terreno_0") // fondo
+            {
+                Debug.Log("¡Todo despejado!");
+                
+                // que mire el de arriba si no supera la longitud
+            }
+            else if (tile.name == "Terreno_1" || tile.name == "Terreno_4" || tile.name == "Terreno_5" || tile.name == "Terreno_6") // estructura // el marrón // el azul // el metálico
+            {
+                Debug.Log("¡Engancha'o!");
+                // evento al Engine.cs para que suba
+                // salir
+            }
+            else
+            {
+                Debug.Log("Rozo el techo con la cabeza");
+            }
+
+        //}
+
+        solidBlock = false;
+    }
+
+    void TestNextTile(int tilePlusY) // Comprueba el tile de encima
+    {
+        Vector2 rope = raycastPoint.position + direction;
+
+        Vector2 hook;
+        hook.x = rope.x + direction.x;
+        hook.y = rope.y + direction.y;
+
+        ropeRaycast = Physics2D.Raycast(raycastPoint.position, direction, casDistance, layerForRope.value);
+        hookRaycast = Physics2D.Raycast(hook, direction, casDistance, layerForHook.value);
     }
 
     /*IEnumerator DestroyBlock(Tilemap map, Vector2 pos, int _ropeLenght) // añadir variable int: longitud de la cuerda
@@ -104,45 +159,7 @@ public class RopeSystem : MonoBehaviour
         solidBlock = false;
     }*/
 
-    void CheckBlock(Tilemap map, Vector2 _rope, int _ropeLenght) // añadir variable int: longitud de la cuerda
-    {
-        _rope.x = Mathf.Floor(_rope.x);
-        _rope.y = Mathf.Floor(_rope.y);
 
-        Vector2 hook;
-        hook.x = Mathf.Floor(_rope.x + direction.x);
-        hook.y = Mathf.Floor(_rope.y + direction.y);
-
-        
-
-        for (int t = 1; t < _ropeLenght; t++)
-        {
-            hook = raycastPoint.position + direction * t;
-
-            TileBase tile = map.GetTile(new Vector3Int((int)hook.x, (int)hook.y, 0));
-
-            //Debug.DrawLine(raycastPoint.position, hook, Color.cyan); // la cuerda  
-
-            if (tile.name == "Terreno_0") // fondo
-            {
-                Debug.Log("¡Todo despejado!");
-                // que mire el de arriba si no supera la longitud
-            }
-            else if (tile.name == "Terreno_1" || tile.name == "Terreno_4" || tile.name == "Terreno_5" || tile.name == "Terreno_6") // estructura // el marrón // el azul // el metálico
-            {
-                Debug.Log("¡Engancha'o!");
-                // evento al Engine.cs para que suba
-                // salir
-            }
-            else
-            {
-                Debug.Log("Rozo el techo con la cabeza");
-            }
-
-        }
-
-        solidBlock = false;
-    }
 
     /*
     void RaycastDirection()

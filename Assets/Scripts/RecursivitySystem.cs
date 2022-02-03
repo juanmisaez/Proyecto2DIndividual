@@ -4,195 +4,109 @@ using UnityEngine;
 
 public class RecursivitySystem : MonoBehaviour
 {
-    public float ExternalRange = 1;
-    public float ExternalInitialScaleX = 7;
-    public float ExternalInitialScaleY = 6;
+    public float bigDustRange = 1;
+    float bigDustInitialScaleX = 1;
+    float bigDustInitialScaleY = 1;
 
-    public float MediumRange = 1;
-    public float MediumInitialScaleX = 6;
-    public float MediumInitialScaleY = 5;
+    public float mediumDustRange = 1;
+    float mediumDustInitialScaleX = 1;
+    float mediumDustInitialScaleY = 1;
 
-    public float InternalRange = 1;
-    public float InternalInitialScaleX = 5;
-    public float InternalInitialScaleY = 4;
+    public float littleDustRange = 1;
+    float littleDustInitialScaleX = 1;
+    float littleDustInitialScaleY = 1;
 
-    public GameObject ExternalPrefab;
-    public GameObject MediumPrefab;
-    public GameObject InternalPrefab;
+    public GameObject bigDustPrefab;
+    public GameObject mediumDustPrefab;
+    public GameObject littleDustPrefab;
 
     public Transform externalFather;
     public Transform mediumFather;
     public Transform internalFather;
 
-    public bool explosion;
+    Vector3 posRock;
+    bool breakRock;
 
-    [Range(0.01f, 0.02f)] // slider
-    public float externalFadeSpeed = 0.014f;
+    [Range(0.005f, 0.01f)] // slider
+    public float externalFadeSpeed = 0.005f;
 
-    [Range(0.01f, 0.02f)] // slider
-    public float mediumFadeSpeed = 0.015f;
+    [Range(0.005f, 0.01f)] // slider
+    public float mediumFadeSpeed = 0.0075f;
 
-    [Range(0.01f, 0.02f)] // slider
-    public float internalFadeSpeed = 0.017f;
-
-
-    void ExternalGenerator(Vector3 pos, float X, float Y)
-    {
-        Vector3 pExternal = pos + new Vector3(0, 0, 0.4f);
-
-        if (Y < ExternalRange)
-        {
-            GameObject a = (GameObject)GameObject.Instantiate(ExternalPrefab, pExternal, Quaternion.identity);
-            a.transform.SetParent(externalFather);
-            a.transform.localScale = new Vector3(X, Y, 1);
-        }
-        else
-        {
-            GameObject a = (GameObject)GameObject.Instantiate(ExternalPrefab, pExternal, Quaternion.identity);
-            a.transform.SetParent(externalFather);
-            a.transform.localScale = new Vector3(X, Y, 1);
-
-            float x = UnityEngine.Random.Range(-X / 2, X / 2) * ExternalRange;
-            float y = UnityEngine.Random.Range(-Y / 2, Y / 2) * ExternalRange;
-            Vector3 p1 = pExternal + new Vector3(x, y, 0);
-            p1 = new Vector3(p1.x, p1.y, 0);
-            ExternalGenerator(p1, X / 2, Y / 2);
-        }
-    }
-
-    void MediumGenerator(Vector3 pos, float X, float Y)
-    {
-        Vector3 pMedium = pos + new Vector3(0, 0, 0.2f);
-
-        if (Y < MediumRange)
-        {
-            GameObject a = (GameObject)GameObject.Instantiate(MediumPrefab, pMedium, Quaternion.identity);
-            a.transform.SetParent(mediumFather);
-            a.transform.localScale = new Vector3(X, Y, 1);
-        }
-        else
-        {
-            GameObject a = (GameObject)GameObject.Instantiate(MediumPrefab, pMedium, Quaternion.identity);
-            a.transform.SetParent(mediumFather);
-            a.transform.localScale = new Vector3(X, Y, 1);
-
-            float x = UnityEngine.Random.Range(-X / 2, X / 2) * MediumRange;
-            float y = UnityEngine.Random.Range(-Y / 2, Y / 2) * MediumRange;
-            Vector3 p1 = pMedium + new Vector3(x, y, 0);
-            p1 = new Vector3(p1.x, p1.y, 0);
-            MediumGenerator(p1, X / 2, Y / 2);
-
-            x = UnityEngine.Random.Range(-X / 2, X / 2) * MediumRange;
-            y = UnityEngine.Random.Range(-Y / 2, Y / 2) * MediumRange;
-            Vector3 p2 = pMedium + new Vector3(x, y, 0);
-            p2 = new Vector3(p2.x, p2.y, 0);
-            MediumGenerator(p2, X / 2, Y / 2);
-
-            x = UnityEngine.Random.Range(-X / 2, X / 2) * MediumRange;
-            y = UnityEngine.Random.Range(-Y / 2, Y / 2) * MediumRange;
-            Vector3 p3 = pMedium + new Vector3(x, y, 0);
-            p3 = new Vector3(p3.x, p3.y, 0);
-            MediumGenerator(p3, X / 2, Y / 2);
-        }
-    }
-
-    void InternalGenerator(Vector3 pos, float X, float Y)
-    {
-        Vector3 pInternal = pos + new Vector3(0, 0, 0);
-
-        if (Y < InternalRange)
-        {
-            GameObject a = (GameObject)GameObject.Instantiate(InternalPrefab, pInternal, Quaternion.identity);
-            a.transform.SetParent(internalFather);
-            a.transform.localScale = new Vector3(X, Y, 1);
-        }
-        else
-        {
-            GameObject a = (GameObject)GameObject.Instantiate(InternalPrefab, pInternal, Quaternion.identity);
-            a.transform.SetParent(internalFather);
-            a.transform.localScale = new Vector3(X, Y, 1);
-
-            float x = UnityEngine.Random.Range(-X / 2, X / 2) * InternalRange;
-            float y = UnityEngine.Random.Range(-Y / 2, Y / 2) * InternalRange;
-            Vector3 p1 = pInternal + new Vector3(x, y, 0);
-            p1 = new Vector3(p1.x, p1.y, 0);
-            InternalGenerator(p1, X / 2, Y / 2);
-
-            x = UnityEngine.Random.Range(-X / 2, X / 2) * InternalRange;
-            y = UnityEngine.Random.Range(-Y / 2, Y / 2) * InternalRange;
-            Vector3 p2 = pInternal + new Vector3(x, y, 0);
-            p2 = new Vector3(p2.x, p2.y, 0);
-            InternalGenerator(p2, X / 2, Y / 2);
-
-            x = UnityEngine.Random.Range(-X / 2, X / 2) * InternalRange;
-            y = UnityEngine.Random.Range(-Y / 2, Y / 2) * InternalRange;
-            Vector3 p3 = pInternal + new Vector3(x, y, 0);
-            p3 = new Vector3(p3.x, p3.y, 0);
-            InternalGenerator(p3, X / 2, Y / 2);
-        }
-    }
+    [Range(0.005f, 0.01f)] // slider
+    public float internalFadeSpeed = 0.01f;
 
     void Update()
     {
-        if (explosion)
-        {
-            ExternalGenerator(transform.position, ExternalInitialScaleX, ExternalInitialScaleY);
-            MediumGenerator(transform.position, MediumInitialScaleX, MediumInitialScaleY);
-            InternalGenerator(transform.position, InternalInitialScaleX, InternalInitialScaleY);
-        }
-
-        explosion = false;
-
-        StartCoroutine(ExternalFade());
-        StartCoroutine(MediumFade());
-        StartCoroutine(InternalFade());
+        BreakRock(breakRock, posRock);
     }
 
-    IEnumerator ExternalFade()
+    void BreakRock(bool _breakRock, Vector3 _posRock)
     {
-        for (int i = 0; i < externalFather.childCount; i++)
-        {
-            MeshRenderer childMesh = externalFather.GetChild(i).GetComponent<MeshRenderer>();
+        breakRock = _breakRock;
 
-            childMesh.material.color -= new Color(0, 0, 0, externalFadeSpeed);
+        _posRock.x += 0.5f;
+        _posRock.y += 0.5f;
+
+        posRock = _posRock;
+
+        if (_breakRock)
+        {
+            Generator(posRock, bigDustInitialScaleX, bigDustInitialScaleY, bigDustRange, bigDustPrefab, externalFather);
+            Generator(posRock, mediumDustInitialScaleX, mediumDustInitialScaleY, mediumDustRange, mediumDustPrefab, mediumFather);
+            Generator(posRock, littleDustInitialScaleX, littleDustInitialScaleY, littleDustRange, littleDustPrefab, internalFather);
+        }
+
+        breakRock = false;
+
+        StartCoroutine(Fade(externalFather, externalFadeSpeed));
+        StartCoroutine(Fade(mediumFather, mediumFadeSpeed));
+        StartCoroutine(Fade(internalFather, internalFadeSpeed));
+    }
+
+    void Generator(Vector3 pos, float X, float Y, float range, GameObject prefab, Transform father)
+    {
+        if (Y < range)
+        {
+            GameObject a = Instantiate(prefab, pos, Quaternion.identity);
+            a.transform.SetParent(father);
+        }
+        else
+        {
+            GameObject a = Instantiate(prefab, pos, Quaternion.identity);
+            a.transform.SetParent(father);
+
+            float x = Random.Range(-X / 2, X / 2) * range;
+            float y = Random.Range(-Y / 2, Y / 2) * range;
+            Vector3 p1 = pos + new Vector3(x, y, 0);
+            p1 = new Vector3(p1.x, p1.y, 0);
+            Generator(p1, X / 2, Y / 2, range, prefab, father);
+        }
+    }
+
+    IEnumerator Fade(Transform father, float fadeSpeed)
+    {
+        for (int i = 0; i < father.childCount; i++)
+        {
+            MeshRenderer childMesh = father.GetChild(i).GetComponent<MeshRenderer>();
+
+            childMesh.material.color -= new Color(0, 0, 0, fadeSpeed);
 
             if (childMesh.material.color.a <= 0)
             {
-                Destroy(externalFather.GetChild(i).gameObject);
+                Destroy(father.GetChild(i).gameObject);
             }
         }
         yield return null;
     }
 
-    IEnumerator MediumFade()
+    void OnEnable()
     {
-        for (int i = 0; i < mediumFather.childCount; i++)
-        {
-            MeshRenderer childMesh = mediumFather.GetChild(i).GetComponent<MeshRenderer>();
-
-            childMesh.material.color -= new Color(0, 0, 0, mediumFadeSpeed);
-
-            if (childMesh.material.color.a <= 0)
-            {
-                Destroy(mediumFather.GetChild(i).gameObject);
-            }
-        }
-        yield return null;
+        GetComponent<BreakBlockSystem>().CrashRock += BreakRock;
     }
 
-    IEnumerator InternalFade()
+    void OnDisable()
     {
-        for (int i = 0; i < internalFather.childCount; i++)
-        {
-            MeshRenderer childMesh = internalFather.GetChild(i).GetComponent<MeshRenderer>();
-
-            childMesh.material.color -= new Color(0, 0, 0, internalFadeSpeed);
-
-            if (childMesh.material.color.a <= 0)
-            {
-                Destroy(internalFather.GetChild(i).gameObject);
-            }
-        }
-        yield return null;
+        GetComponent<BreakBlockSystem>().CrashRock -= BreakRock;
     }
 }
