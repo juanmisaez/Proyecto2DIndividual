@@ -23,18 +23,17 @@ public class WinMenu : MenuSystem
         EventSystem.current.SetSelectedGameObject(selectedFirstButton); // selecciona un nuevo objeto
     }
 
-    public void Retry()
-    {
-        gameIsPaused = false;
-        IsPaused(gameIsPaused);
-        SceneManager.LoadScene("Game");
-    }
-
     public void Credits()
     {
         gameIsPaused = false;
         IsPaused(gameIsPaused);
         SceneManager.LoadScene("Credits");
+    }
+
+    public void AddName(string _playerName)
+    {
+        DataBase.CreateDB();
+        DataBase.AddToDB(_playerName);
     }
 
     void OnEnable()

@@ -11,5 +11,6 @@ public class CollisionEnterMine : CollisionSystem
     protected override void OnCollision(Collider2D other)
     {        
         other.gameObject.GetComponent<OxygenSystem>()?.ModifyOxygen(notOxygen);
+        other.gameObject.GetComponent<Engine>()?.EnterMine(notOxygen);
     }
 }

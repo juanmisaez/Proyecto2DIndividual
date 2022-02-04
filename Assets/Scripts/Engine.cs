@@ -13,6 +13,7 @@ public class Engine : MonoBehaviour
 
     private bool walkableLayer;
     private bool roofLayer; //---TEST---
+    bool enterMine = false;
 
     private InputSystemKeyboard _inputSystem;
     public Rigidbody2D ballRb;
@@ -51,7 +52,7 @@ public class Engine : MonoBehaviour
             }
 
             //--Up--// (provisional)
-            if (_inputSystem.w == true && walkableLayer == true )
+            if (_inputSystem.w == true && walkableLayer == true && enterMine)
             {                
                 if (!obstacleVer)
                 {
@@ -90,6 +91,11 @@ public class Engine : MonoBehaviour
             scale.x = -1f;
         }
         transform.localScale = scale;                
+    }
+
+    public void EnterMine(bool _enterMine)
+    {
+        enterMine = _enterMine;
     }
 
     void OnGround(bool onGrounded, bool onStructure)

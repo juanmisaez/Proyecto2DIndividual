@@ -19,6 +19,7 @@ public class InputSystemKeyboard : MonoBehaviour
     bool over;
     bool options;
     bool cutscene;
+    bool enterMine = false;
 
     void Update()
     {
