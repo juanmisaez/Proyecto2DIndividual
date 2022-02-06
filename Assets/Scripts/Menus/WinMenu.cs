@@ -28,6 +28,7 @@ public class WinMenu : MenuSystem
         gameIsPaused = false;
         IsPaused(gameIsPaused);
         SceneManager.LoadScene("Credits");
+        GC.Collect();
     }
 
     public void AddName(string _playerName)

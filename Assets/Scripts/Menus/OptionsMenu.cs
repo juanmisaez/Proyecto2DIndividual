@@ -24,6 +24,11 @@ public class OptionsMenu : MenuSystem
         EventSystem.current.SetSelectedGameObject(optionsFirstButton); // selecciona un nuevo objeto
     }
 
+    public void FullScreen(bool _fullScreen)
+    {
+        Screen.fullScreen = _fullScreen;
+    }
+
     public void CloseMenu()
     {
         gameInOptions = false;

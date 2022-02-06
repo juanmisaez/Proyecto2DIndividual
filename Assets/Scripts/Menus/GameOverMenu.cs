@@ -27,6 +27,7 @@ public class GameOverMenu : MenuSystem
         gameIsPaused = false;
         IsOver(gameIsPaused);
         SceneManager.LoadScene("Game");
+        GC.Collect();
     }
 
     void OnEnable()
